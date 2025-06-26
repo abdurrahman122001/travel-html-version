@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breakout Header Example</title>
+    <!-- Tailwind browser CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Remix icons for social icons (optional) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      .swiper-button-custom {
+        background: #38bdf8;
+        border-radius: 9999px;
+        width: 55px;
+        height: 55px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 24px rgba(80, 160, 180, 0.18);
+        color: #fff;
+        font-size: 2rem;
+        position: absolute;
+        top: 50% !important;
+        transform: translateY(-50%);
+        z-index: 999;
+        border: none;
+        transition: background 0.2s;
+        cursor: pointer;
+      }
+      .swiper-button-custom:hover {
+        background: #52aec5;
+      }
+      /* left/right positioning */
+      .swiper-button-prev.swiper-button-custom {
+        left: -32px;
+      }
+      .swiper-button-next.swiper-button-custom {
+        right: -32px;
+      }
+      /* Remove Swiper default arrows */
+      .swiper-button-prev:after,
+      .swiper-button-next:after {
+        display: none !important;
+      }
+      @media (max-width: 1024px) {
+        .swiper-button-custom {
+          display: none !important;
+        }
+      }
+      .typing-cursor::after {
+        content: "|";
+        animation: blink 1s steps(1) infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Header -->
+    <header class="w-full bg-white shadow">
+      <div class="flex items-center justify-between px-4 md:px-12 py-3">
+        <div class="flex items-center space-x-3">
+          <img src="logo.png" alt="Logo" class="h-10 w-auto object-contain" />
+        </div>
+        <form class="hidden md:flex flex-1 max-w-2xl mx-8">
+          <div class="relative w-full">
+            <input
+              type="text"
+              placeholder="Where do you want to go?"
+              class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition"
+            />
+            <span class="absolute right-3 top-2.5 text-blue-400"
+              ><i class="ri-search-line"></i
+            ></span>
+          </div>
+        </form>
+        <nav class="hidden md:flex items-center space-x-6">
+          <a
+            href="#"
+            class="flex items-center space-x-1 text-gray-700 hover:text-blue-600"
+            ><span class="text-lg"><i class="ri-calendar-2-line"></i></span
+            ><span class="text-sm">Upcoming Trips</span></a
+          >
+          <a href="#" class="text-gray-700 hover:text-blue-600 text-sm">Home</a>
+          <a href="#" class="text-gray-700 hover:text-blue-600 text-sm"
+            >Packages</a
+          >
+          <a href="#" class="text-gray-700 hover:text-blue-600 text-sm"
+            >About Us</a
+          >
+          <a href="#" class="text-gray-700 hover:text-blue-600 text-sm">Blog</a>
+          <a href="#" class="text-blue-600"><i class="ri-facebook-line"></i></a>
+          <a href="#" class="text-blue-600"
+            ><i class="ri-instagram-line"></i
+          ></a>
+          <a href="#" class="text-blue-600"><i class="ri-whatsapp-line"></i></a>
+          <a href="#" class="text-blue-600"><i class="ri-youtube-line"></i></a>
+          <a href="#" class="text-blue-600"><i class="ri-phone-line"></i></a>
+          <a
+            href="#"
+            class="border border-blue-500 text-blue-500 rounded-full px-5 py-2 hover:bg-blue-50 ml-2 font-semibold"
+            >Contact Us</a
+          >
+        </nav>
+        <button
+          id="menuBtn"
+          class="block md:hidden text-3xl text-blue-600 focus:outline-none"
+        >
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+      <form class="flex md:hidden px-4 pb-2">
+        <div class="relative w-full">
+          <input
+            type="text"
+            placeholder="Where do you want to go?"
+            class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+          <span class="absolute right-3 top-2.5 text-blue-400"
+            ><i class="ri-search-line"></i
+          ></span>
+        </div>
+      </form>
+      <div
+        class="hidden md:flex w-full bg-blue-300 text-white font-semibold text-sm"
+        style="background-color: #38bdf8"
+      >
+        <div class="mx-auto flex space-x-8 py-6">
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              International Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Indian Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              School Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Inschool Camps <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Corporates Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Group Tours <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Educational Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Weekend Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Sidebar/Drawer -->
+    <div
+      id="sidebar"
+      class="fixed inset-0 z-50 bg-black bg-opacity-60 sidebar-transition transform translate-x-full md:hidden"
+    >
+      <div
+        class="w-80 max-w-full h-full bg-white shadow-lg flex flex-col px-6 py-5 relative"
+      >
+        <div class="flex items-center justify-between mb-3">
+          <h2 class="text-lg font-bold text-blue-700">Menu</h2>
+          <button id="closeBtn" class="text-2xl text-blue-700">
+            <i class="ri-close-line"></i>
+          </button>
+        </div>
+        <div class="mb-4">
+          <div class="relative w-full">
+            <input
+              type="text"
+              placeholder="Where do you want to go?"
+              class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition"
+            />
+            <span class="absolute right-3 top-2.5 text-blue-400"
+              ><i class="ri-search-line"></i
+            ></span>
+          </div>
+        </div>
+        <nav class="flex flex-col space-y-4 mb-4">
+          <a
+            href="#"
+            class="flex items-center gap-2 text-gray-800 text-base font-medium"
+            ><i class="ri-calendar-2-line text-xl"></i> Upcoming Trips</a
+          >
+          <a href="#" class="text-gray-800 text-base font-medium">Packages</a>
+          <a href="#" class="text-gray-800 text-base font-medium"
+            >Corporate Tours</a
+          >
+          <a href="#" class="text-gray-800 text-base font-medium">Blogs</a>
+          <a href="#" class="text-gray-800 text-base font-medium">About Us</a>
+          <a
+            href="#"
+            class="w-full mt-3 bg-blue-600 text-white rounded-full px-4 py-2 text-center font-semibold"
+            >Contact Us</a
+          >
+        </nav>
+        <div class="flex justify-start space-x-5 mt-auto mb-5">
+          <a href="#" class="text-2xl text-blue-700"
+            ><i class="ri-facebook-line"></i
+          ></a>
+          <a href="#" class="text-2xl text-blue-700"
+            ><i class="ri-instagram-line"></i
+          ></a>
+          <a href="#" class="text-2xl text-blue-700"
+            ><i class="ri-whatsapp-line"></i
+          ></a>
+          <a href="#" class="text-2xl text-blue-700"
+            ><i class="ri-youtube-line"></i
+          ></a>
+          <a href="#" class="text-2xl text-blue-700"
+            ><i class="ri-phone-line"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section
+      class="min-h-[380px] xs:min-h-[430px] sm:min-h-[520px] md:min-h-[600px] lg:min-h-[680px] w-full relative"
+    >
+      <div
+        class="relative h-[380px] xs:h-[430px] sm:h-[520px] md:h-[600px] lg:h-[680px] w-full"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80"
+          alt="hero"
+          class="w-full h-full object-cover absolute inset-0"
+          style="z-index: 1"
+        />
+        <div
+          class="absolute inset-0 bg-black/40 flex items-center justify-center z-10"
+        >
+          <div class="text-center text-white px-4 max-w-4xl">
+            <h1
+              style="font-family: roboto"
+              class="text-3xl md:text-7xl font-bold mb-4"
+            >
+              Global Community for Travelers
+            </h1>
+            <p
+              style="font-family: roboto"
+              class="text-yellow-400 text-xl md:text-3xl font-medium typing-cursor"
+              id="typing-text"
+            ></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Badges -->
+    <section
+      class="py-5 flex items-center justify-center"
+      style="background-color: #f1fdff"
+    >
+      <div class="flex flex-wrap justify-center gap-6 max-w-4xl w-full px-4">
+        <!-- Google -->
+        <a
+          href="https://www.google.com/search?q=wanderon"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-4 border border-gray-200 shadow-sm p-4 rounded-lg transition hover:shadow-md bg-white w-full sm:w-auto"
+        >
+          <img
+            src="https://ik.imagekit.io/workcations/gallery/landing-pages/social/google.png"
+            alt="Google"
+            class="w-10 h-10 object-contain"
+          />
+          <div>
+            <div
+              class="flex items-center gap-1 text-yellow-500 font-bold text-lg"
+            >
+              <svg
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                class="w-5 h-5 inline"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.175 3.617a1 1 0 00.95.69h3.805c.969 0 1.371 1.24.588 1.81l-3.078 2.236a1 1 0 00-.364 1.118l1.175 3.618c.3.921-.755 1.688-1.54 1.118l-3.078-2.236a1 1 0 00-1.176 0l-3.078 2.236c-.784.57-1.838-.197-1.539-1.118l1.175-3.618a1 1 0 00-.364-1.118L2.36 9.044c-.783-.57-.38-1.81.588-1.81h3.806a1 1 0 00.95-.69l1.175-3.617z"
+                />
+              </svg>
+              4.9
+            </div>
+            <p class="text-sm text-gray-500">(13,080 reviews)</p>
+          </div>
+        </a>
+        <!-- Tripadvisor -->
+        <a
+          href="https://www.tripadvisor.in/Attraction_Review-g304551-d15013133-Reviews-WanderOn-New_Delhi_National_Capital_Territory_of_Delhi.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-4 border border-gray-200 shadow-sm p-4 rounded-lg transition hover:shadow-md bg-white w-full sm:w-auto"
+        >
+          <img
+            src="https://ik.imagekit.io/workcations/gallery/landing-pages/social/tripadvisor.png"
+            alt="Tripadvisor"
+            class="w-10 h-10 object-contain"
+          />
+          <div>
+            <div
+              class="flex items-center gap-1 text-yellow-500 font-bold text-lg"
+            >
+              <svg
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                class="w-5 h-5 inline"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.175 3.617a1 1 0 00.95.69h3.805c.969 0 1.371 1.24.588 1.81l-3.078 2.236a1 1 0 00-.364 1.118l1.175 3.618c.3.921-.755 1.688-1.54 1.118l-3.078-2.236a1 1 0 00-1.176 0l-3.078 2.236c-.784.57-1.838-.197-1.539-1.118l1.175-3.618a1 1 0 00-.364-1.118L2.36 9.044c-.783-.57-.38-1.81.588-1.81h3.806a1 1 0 00.95-.69l1.175-3.617z"
+                />
+              </svg>
+              5.0
+            </div>
+            <p class="text-sm text-gray-500">(3,660 reviews)</p>
+          </div>
+        </a>
+        <!-- Facebook -->
+        <a
+          href="https://www.facebook.com/wander.on/reviews/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-4 border border-gray-200 shadow-sm p-4 rounded-lg transition hover:shadow-md bg-white w-full sm:w-auto"
+        >
+          <img
+            src="https://ik.imagekit.io/workcations/gallery/landing-pages/social/facebook.png"
+            alt="Facebook"
+            class="w-10 h-10 object-contain"
+          />
+          <div>
+            <div
+              class="flex items-center gap-1 text-yellow-500 font-bold text-lg"
+            >
+              <svg
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                class="w-5 h-5 inline"
+              >
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.175 3.617a1 1 0 00.95.69h3.805c.969 0 1.371 1.24.588 1.81l-3.078 2.236a1 1 0 00-.364 1.118l1.175 3.618c.3.921-.755 1.688-1.54 1.118l-3.078-2.236a1 1 0 00-1.176 0l-3.078 2.236c-.784.57-1.838-.197-1.539-1.118l1.175-3.618a1 1 0 00-.364-1.118L2.36 9.044c-.783-.57-.38-1.81.588-1.81h3.806a1 1 0 00.95-.69l1.175-3.617z"
+                />
+              </svg>
+              4.9
+            </div>
+            <p class="text-sm text-gray-500">(1,031 reviews)</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Centered images -->
+    <section class="py-20 px-4 flex items-center justify-center hidden md:flex">
+      <div class="w-full text-center">
+        <img
+          src="abc.png"
+          alt="WanderOn Logo"
+          class="mx-auto w-full max-w-[1500px]"
+        />
+      </div>
+    </section>
+    <section class="py-20 px-4 flex items-center justify-center hidden md:flex">
+      <div class="w-full text-center">
+        <img
+          src="ucl.jpg"
+          alt="WanderOn Logo"
+          class="mx-auto w-full max-w-[1500px]"
+        />
+      </div>
+    </section>
+
+    <!-- Explore India Swiper -->
+    <!-- Explore India Swiper -->
+    <section class="py-12 relative hidden md:block mt-15 bg-[#FFECE2]">
+      <div class="max-w-[1500px] mx-auto px-4 flex flex-col items-center">
+        <!-- Hero Banner -->
+        <div
+          class="w-full bg-cover bg-center rounded-2xl mb-[-60px] relative"
+          style="
+            background-image: url('https://images.wanderon.in/new-homepage-data/cta%20homepage%20-%20desktop.png');
+            min-height: 370px;
+            max-width: 1400px;
+          "
+        >
+          <div class="absolute inset-0 bg-black/20 rounded-2xl"></div>
+          <div
+            class="relative z-10 flex flex-col justify-center h-full px-12 py-12 md:px-24 md:py-20"
+          >
+            <h1
+              class="text-white text-5xl md:text-6xl font-bold mb-6 drop-shadow"
+              style="font-family: Roboto, sans-serif"
+            >
+              Explore India
+            </h1>
+            <p
+              class="text-white text-lg md:text-2xl mb-8 font-medium"
+              style="font-family: Roboto, sans-serif"
+            >
+              Discover the world, one destination at a time
+            </p>
+            <button
+              class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold rounded-md py-3 text-lg shadow-md border border-yellow-400 transition-all duration-150 focus:outline-none w-36 flex justify-center items-center"
+            >
+              Explore
+            </button>
+          </div>
+        </div>
+        <div
+          class="relative w-full max-w-[1150px] min-h-[430px] flex items-center"
+          style="margin-top: -45px; z-index: 20"
+        >
+          <!-- Left Arrow -->
+          <button
+            class="explore-swiper-button-prev swiper-button-custom absolute left-[-32px] z-20"
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <!-- Swiper main container -->
+          <div class="overflow-visible w-full">
+            <div class="swiper mySwiper w-full">
+              <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide w-[250px] md:w-[270px] flex-shrink-0">
+                  <div
+                    class="rounded-xl overflow-hidden shadow-lg border border-white bg-white relative group transition-all"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80"
+                      alt="Goa"
+                      class="w-full h-[330px] object-cover"
+                      draggable="false"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black/50 to-transparent"
+                    >
+                      <h3
+                        class="text-white text-center text-2xl font-bold drop-shadow"
+                      >
+                        Goa
+                      </h3>
+                      <p
+                        class="text-white text-center text-sm font-medium drop-shadow"
+                      >
+                        Starting Price Rs. 12,000/-
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide w-[250px] md:w-[270px] flex-shrink-0">
+                  <div
+                    class="rounded-xl overflow-hidden shadow-lg border border-white bg-white relative group transition-all"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
+                      alt="Ladakh"
+                      class="w-full h-[330px] object-cover"
+                      draggable="false"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black/50 to-transparent"
+                    >
+                      <h3
+                        class="text-white text-center text-2xl font-bold drop-shadow"
+                      >
+                        Ladakh
+                      </h3>
+                      <p
+                        class="text-white text-center text-sm font-medium drop-shadow"
+                      >
+                        Starting Price Rs. 18,500/-
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide w-[250px] md:w-[270px] flex-shrink-0">
+                  <div
+                    class="rounded-xl overflow-hidden shadow-lg border border-white bg-white relative group transition-all"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=600&q=80"
+                      alt="Manali"
+                      class="w-full h-[330px] object-cover"
+                      draggable="false"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black/50 to-transparent"
+                    >
+                      <h3
+                        class="text-white text-center text-2xl font-bold drop-shadow"
+                      >
+                        Manali
+                      </h3>
+                      <p
+                        class="text-white text-center text-sm font-medium drop-shadow"
+                      >
+                        Starting Price Rs. 9,500/-
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide w-[250px] md:w-[270px] flex-shrink-0">
+                  <div
+                    class="rounded-xl overflow-hidden shadow-lg border border-white bg-white relative group transition-all"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=600&q=80"
+                      alt="Kerala"
+                      class="w-full h-[330px] object-cover"
+                      draggable="false"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black/50 to-transparent"
+                    >
+                      <h3
+                        class="text-white text-center text-2xl font-bold drop-shadow"
+                      >
+                        Kerala
+                      </h3>
+                      <p
+                        class="text-white text-center text-sm font-medium drop-shadow"
+                      >
+                        Starting Price Rs. 14,000/-
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="swiper-slide w-[250px] md:w-[270px] flex-shrink-0">
+                  <div
+                    class="rounded-xl overflow-hidden shadow-lg border border-white bg-white relative group transition-all"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=600&q=80"
+                      alt="Rajasthan"
+                      class="w-full h-[330px] object-cover"
+                      draggable="false"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black/50 to-transparent"
+                    >
+                      <h3
+                        class="text-white text-center text-2xl font-bold drop-shadow"
+                      >
+                        Rajasthan
+                      </h3>
+                      <p
+                        class="text-white text-center text-sm font-medium drop-shadow"
+                      >
+                        Starting Price Rs. 10,500/-
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Slide 6 -->
+                <div class="swiper-slide w-[250px] md:w-[270px] flex-shrink-0">
+                  <div
+                    class="rounded-xl overflow-hidden shadow-lg border border-white bg-white relative group transition-all"
+                  >
+                    <img
+                      src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80"
+                      alt="Andaman"
+                      class="w-full h-[330px] object-cover"
+                      draggable="false"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black/50 to-transparent"
+                    >
+                      <h3
+                        class="text-white text-center text-2xl font-bold drop-shadow"
+                      >
+                        Andaman
+                      </h3>
+                      <p
+                        class="text-white text-center text-sm font-medium drop-shadow"
+                      >
+                        Starting Price Rs. 15,000/-
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right Arrow -->
+          <button
+            class="explore-swiper-button-next swiper-button-custom absolute right-[-32px] z-20"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Community Trips Swiper -->
+    <section class="py-10 md:py-14 bg-white hidden md:block">
+      <div class="max-w-7xl mx-auto px-4">
+        <div
+          class="flex flex-col sm:flex-row items-center justify-between mb-6 gap-2"
+        >
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
+            Upcoming Community Trips
+          </h2>
+          <a
+            href="#"
+            class="text-blue-700 text-base md:text-lg font-semibold flex items-center gap-1 hover:underline"
+            >View All <span class="inline-block ml-1 text-lg">→</span></a
+          >
+        </div>
+        <!-- Month Tabs -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-2">
+          <button
+            class="whitespace-nowrap rounded-full px-5 py-2 border text-sm md:text-base font-medium transition-all bg-blue-50 border-blue-400 text-blue-800 shadow-sm"
+          >
+            July
+          </button>
+          <button
+            class="whitespace-nowrap rounded-full px-5 py-2 border text-sm md:text-base font-medium transition-all bg-white border-gray-200 text-gray-600 hover:border-blue-300"
+          >
+            August
+          </button>
+          <button
+            class="whitespace-nowrap rounded-full px-5 py-2 border text-sm md:text-base font-medium transition-all bg-white border-gray-200 text-gray-600 hover:border-blue-300"
+          >
+            September
+          </button>
+          <button
+            class="whitespace-nowrap rounded-full px-5 py-2 border text-sm md:text-base font-medium transition-all bg-white border-gray-200 text-gray-600 hover:border-blue-300"
+          >
+            October
+          </button>
+          <button
+            class="whitespace-nowrap rounded-full px-5 py-2 border text-sm md:text-base font-medium transition-all bg-white border-gray-200 text-gray-600 hover:border-blue-300"
+          >
+            November
+          </button>
+          <button
+            class="whitespace-nowrap rounded-full px-5 py-2 border text-sm md:text-base font-medium transition-all bg-white border-gray-200 text-gray-600 hover:border-blue-300"
+          >
+            December
+          </button>
+        </div>
+        <!-- Slider -->
+        <div class="relative mt-4">
+          <button class="swiper-button-prev swiper-button-custom">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="swiper-button-next swiper-button-custom">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+          <div class="swiper myTripSwiper">
+            <div class="swiper-wrapper">
+              <!-- Trip Card 1 -->
+              <div class="swiper-slide">
+                <a href="/packages/1">
+                  <div
+                    class="relative group rounded-2xl overflow-hidden h-[300px] sm:h-[400px] md:h-[420px] flex flex-col justify-end"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0"
+                    ></div>
+                    <div class="absolute top-4 left-4 z-10">
+                      <div
+                        class="bg-yellow-300/95 text-gray-900 font-semibold px-4 py-1 rounded-full flex items-center gap-2 text-base shadow"
+                      >
+                        <span class="line-through text-gray-600">₹25,000</span
+                        ><span class="font-bold">₹19,999/-</span
+                        ><span class="text-xs">Onwards</span>
+                      </div>
+                    </div>
+                    <div
+                      class="relative z-10 p-5 pb-4 flex flex-col justify-end"
+                    >
+                      <div
+                        class="text-white font-bold text-base leading-snug mb-2 line-clamp-2 drop-shadow"
+                      >
+                        Ladakh Adventure
+                      </div>
+                      <div
+                        class="flex flex-wrap items-center text-white/90 text-xs mb-1 gap-x-4 gap-y-1"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">⏱️</span> 7 Days</span
+                        >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📍</span> Leh</span
+                        >
+                      </div>
+                      <div
+                        class="flex items-center text-white/90 text-xs gap-2"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📅</span> 10th July</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- Trip Card 2 -->
+              <div class="swiper-slide">
+                <a href="/packages/2">
+                  <div
+                    class="relative group rounded-2xl overflow-hidden h-[350px] sm:h-[400px] md:h-[420px] flex flex-col justify-end"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=800&q=80');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0"
+                    ></div>
+                    <div class="absolute top-4 left-4 z-10">
+                      <div
+                        class="bg-yellow-300/95 text-gray-900 font-semibold px-4 py-1 rounded-full flex items-center gap-2 text-base shadow"
+                      >
+                        <span class="line-through text-gray-600">₹30,000</span
+                        ><span class="font-bold">₹24,999/-</span
+                        ><span class="text-xs">Onwards</span>
+                      </div>
+                    </div>
+                    <div
+                      class="relative z-10 p-5 pb-4 flex flex-col justify-end"
+                    >
+                      <div
+                        class="text-white font-bold text-base leading-snug mb-2 line-clamp-2 drop-shadow"
+                      >
+                        Manali Trek
+                      </div>
+                      <div
+                        class="flex flex-wrap items-center text-white/90 text-xs mb-1 gap-x-4 gap-y-1"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">⏱️</span> 5 Days</span
+                        >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📍</span> Manali</span
+                        >
+                      </div>
+                      <div
+                        class="flex items-center text-white/90 text-xs gap-2"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📅</span> 20th August</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- Trip Card 3 -->
+              <div class="swiper-slide">
+                <a href="/packages/3">
+                  <div
+                    class="relative group rounded-2xl overflow-hidden h-[350px] sm:h-[400px] md:h-[420px] flex flex-col justify-end"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800&q=80');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0"
+                    ></div>
+                    <div class="absolute top-4 left-4 z-10">
+                      <div
+                        class="bg-yellow-300/95 text-gray-900 font-semibold px-4 py-1 rounded-full flex items-center gap-2 text-base shadow"
+                      >
+                        <span class="line-through text-gray-600">₹21,000</span
+                        ><span class="font-bold">₹17,999/-</span
+                        ><span class="text-xs">Onwards</span>
+                      </div>
+                    </div>
+                    <div
+                      class="relative z-10 p-5 pb-4 flex flex-col justify-end"
+                    >
+                      <div
+                        class="text-white font-bold text-base leading-snug mb-2 line-clamp-2 drop-shadow"
+                      >
+                        Kerala Getaway
+                      </div>
+                      <div
+                        class="flex flex-wrap items-center text-white/90 text-xs mb-1 gap-x-4 gap-y-1"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">⏱️</span> 6 Days</span
+                        >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📍</span> Kochi</span
+                        >
+                      </div>
+                      <div
+                        class="flex items-center text-white/90 text-xs gap-2"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📅</span> 18th September</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- Trip Card 4 -->
+              <div class="swiper-slide">
+                <a href="/packages/4">
+                  <div
+                    class="relative group rounded-2xl overflow-hidden h-[350px] sm:h-[400px] md:h-[420px] flex flex-col justify-end"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0"
+                    ></div>
+                    <div class="absolute top-4 left-4 z-10">
+                      <div
+                        class="bg-yellow-300/95 text-gray-900 font-semibold px-4 py-1 rounded-full flex items-center gap-2 text-base shadow"
+                      >
+                        <span class="line-through text-gray-600">₹23,000</span
+                        ><span class="font-bold">₹19,500/-</span
+                        ><span class="text-xs">Onwards</span>
+                      </div>
+                    </div>
+                    <div
+                      class="relative z-10 p-5 pb-4 flex flex-col justify-end"
+                    >
+                      <div
+                        class="text-white font-bold text-base leading-snug mb-2 line-clamp-2 drop-shadow"
+                      >
+                        Rajasthan Royal
+                      </div>
+                      <div
+                        class="flex flex-wrap items-center text-white/90 text-xs mb-1 gap-x-4 gap-y-1"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">⏱️</span> 5 Days</span
+                        >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📍</span> Jaipur</span
+                        >
+                      </div>
+                      <div
+                        class="flex items-center text-white/90 text-xs gap-2"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📅</span> 5th October</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- Trip Card 5 -->
+              <div class="swiper-slide">
+                <a href="/packages/5">
+                  <div
+                    class="relative group rounded-2xl overflow-hidden h-[350px] sm:h-[400px] md:h-[420px] flex flex-col justify-end"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0"
+                    ></div>
+                    <div class="absolute top-4 left-4 z-10">
+                      <div
+                        class="bg-yellow-300/95 text-gray-900 font-semibold px-4 py-1 rounded-full flex items-center gap-2 text-base shadow"
+                      >
+                        <span class="line-through text-gray-600">₹29,000</span
+                        ><span class="font-bold">₹24,499/-</span
+                        ><span class="text-xs">Onwards</span>
+                      </div>
+                    </div>
+                    <div
+                      class="relative z-10 p-5 pb-4 flex flex-col justify-end"
+                    >
+                      <div
+                        class="text-white font-bold text-base leading-snug mb-2 line-clamp-2 drop-shadow"
+                      >
+                        Goa Beach Fest
+                      </div>
+                      <div
+                        class="flex flex-wrap items-center text-white/90 text-xs mb-1 gap-x-4 gap-y-1"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">⏱️</span> 4 Days</span
+                        >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📍</span> Goa</span
+                        >
+                      </div>
+                      <div
+                        class="flex items-center text-white/90 text-xs gap-2"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📅</span> 25th November</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- Trip Card 6 -->
+              <div class="swiper-slide">
+                <a href="/packages/6">
+                  <div
+                    class="relative group rounded-2xl overflow-hidden h-[350px] sm:h-[400px] md:h-[420px] flex flex-col justify-end"
+                    style="
+                      background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80');
+                      background-size: cover;
+                      background-position: center;
+                    "
+                  >
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-0"
+                    ></div>
+                    <div class="absolute top-4 left-4 z-10">
+                      <div
+                        class="bg-yellow-300/95 text-gray-900 font-semibold px-4 py-1 rounded-full flex items-center gap-2 text-base shadow"
+                      >
+                        <span class="line-through text-gray-600">₹32,000</span
+                        ><span class="font-bold">₹27,500/-</span
+                        ><span class="text-xs">Onwards</span>
+                      </div>
+                    </div>
+                    <div
+                      class="relative z-10 p-5 pb-4 flex flex-col justify-end"
+                    >
+                      <div
+                        class="text-white font-bold text-base leading-snug mb-2 line-clamp-2 drop-shadow"
+                      >
+                        Andaman Escape
+                      </div>
+                      <div
+                        class="flex flex-wrap items-center text-white/90 text-xs mb-1 gap-x-4 gap-y-1"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">⏱️</span> 6 Days</span
+                        >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📍</span> Port Blair</span
+                        >
+                      </div>
+                      <div
+                        class="flex items-center text-white/90 text-xs gap-2"
+                      >
+                        <span class="flex items-center gap-1"
+                          ><span class="text-lg">📅</span> 15th December</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS: Sidebar -->
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const menuBtn = document.getElementById("menuBtn");
+      const closeBtn = document.getElementById("closeBtn");
+      menuBtn.addEventListener("click", () => {
+        sidebar.classList.remove("translate-x-full");
+      });
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.add("translate-x-full");
+      });
+      sidebar.addEventListener("click", (e) => {
+        if (e.target === sidebar) sidebar.classList.add("translate-x-full");
+      });
+    </script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 5,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: ".explore-swiper-button-next",
+          prevEl: ".explore-swiper-button-prev",
+        },
+        breakpoints: {
+          0: { slidesPerView: 1.2 },
+          600: { slidesPerView: 2.2 },
+          900: { slidesPerView: 3 },
+          1200: { slidesPerView: 5 },
+        },
+      });
+
+      // "Upcoming Trips" Swiper
+      var tripSwiper = new Swiper(".myTripSwiper", {
+        slidesPerView: 1,
+        spaceBetween: 16,
+        navigation: {
+          nextEl:
+            ".myTripSwiper + .swiper-button-next, .myTripSwiper .swiper-button-next",
+          prevEl:
+            ".myTripSwiper + .swiper-button-prev, .myTripSwiper .swiper-button-prev",
+        },
+        breakpoints: {
+          640: { slidesPerView: 1.1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        },
+      });
+    </script>
+    <!-- Typing Text JS -->
+    <script>
+      const typingTexts = [
+        "Create Your Own Journey, Your Own Story...",
+        "Find Adventures That Match Your Soul...",
+        "Travel With Purpose And People You Love...",
+      ];
+      let currentTextIndex = 0;
+      let charIndex = 0;
+      let typingTimeout, deletingTimeout;
+      const typingTextEl = document.getElementById("typing-text");
+      function type() {
+        const currentText = typingTexts[currentTextIndex];
+        if (charIndex <= currentText.length) {
+          typingTextEl.textContent = currentText.slice(0, charIndex);
+          charIndex++;
+          typingTimeout = setTimeout(type, 80);
+        } else {
+          setTimeout(deleteText, 1500);
+        }
+      }
+      function deleteText() {
+        const currentText = typingTexts[currentTextIndex];
+        if (charIndex >= 0) {
+          typingTextEl.textContent = currentText.slice(0, charIndex);
+          charIndex--;
+          deletingTimeout = setTimeout(deleteText, 40);
+        } else {
+          currentTextIndex = (currentTextIndex + 1) % typingTexts.length;
+          setTimeout(type, 400);
+        }
+      }
+      type();
+    </script>
+  </body>
+</html>
