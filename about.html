@@ -17,133 +17,178 @@
     .text-muted-foreground { color: #64748b; }
     .bg-primary\/10 { background-color: rgb(56 189 248 / 0.10); }
     .text-primary-foreground { color: #fff; }
+    /* Hide scroll on sidebar overlay when open */
+    .sidebar-transition { transition: transform 0.3s ease; }
+    .sidebar-open { transform: translateX(0) !important; }
+    .sidebar-closed { transform: translateX(100%); }
   </style>
 </head>
 <body class="min-h-screen bg-white flex flex-col">
-    <header class="w-full bg-white shadow">
-      <div class="flex items-center justify-between px-4 md:px-12 py-3">
-        <div class="flex items-center space-x-3">
-          <img src="logo.png" alt="Logo" class="h-10 w-auto object-contain" />
-        </div>
-        <form class="hidden md:flex flex-1 max-w-2xl mx-8">
-          <div class="relative w-full">
-            <input
-              id="searchInput"
-              type="text"
-              placeholder="Where do you want to go?"
-              class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition cursor-pointer"
-              readonly
-            />
-            <span class="absolute right-3 top-2.5 text-blue-400"
-              ><i class="ri-search-line"></i
-            ></span>
-          </div>
-        </form>
-        <nav class="hidden md:flex items-center space-x-6">
-          <a
-            href="#"
-            class="flex items-center space-x-1 text-gray-700 hover:text-blue-600"
-            ><span class="text-lg"><i class="ri-calendar-2-line"></i></span
-            ><span class="text-sm">Upcoming Trips</span></a
-          >
-          <a href="index.html" class="text-gray-700 hover:text-blue-600 text-sm"
-            >Home</a
-          >
-          <a
-            href="packages.html"
-            class="text-gray-700 hover:text-blue-600 text-sm"
-            >Packages</a
-          >
-          <a href="about.html" class="text-gray-700 hover:text-blue-600 text-sm"
-            >About Us</a
-          >
-          <a href="blog.html" class="text-gray-700 hover:text-blue-600 text-sm"
-            >Blog</a
-          >
-          <a href="#" class="text-blue-600"><i class="ri-facebook-line"></i></a>
-          <a href="#" class="text-blue-600"
-            ><i class="ri-instagram-line"></i
-          ></a>
-          <a href="#" class="text-blue-600"><i class="ri-whatsapp-line"></i></a>
-          <a href="#" class="text-blue-600"><i class="ri-youtube-line"></i></a>
-          <a href="#" class="text-blue-600"><i class="ri-phone-line"></i></a>
-          <a
-            href="#"
-            class="border border-blue-500 text-blue-500 rounded-full px-5 py-2 hover:bg-blue-50 ml-2 font-semibold"
-            >Contact Us</a
-          >
-        </nav>
-        <button
-          id="menuBtn"
-          class="block md:hidden text-3xl text-blue-600 focus:outline-none"
-        >
-          <i class="ri-menu-line"></i>
-        </button>
+
+  <!-- Header -->
+  <header class="w-full bg-white shadow sticky top-0 z-40">
+    <div class="flex items-center justify-between px-4 md:px-12 py-3">
+      <div class="flex items-center space-x-3">
+        <a href="index.html">
+          <img src="logo.png" alt="Logo" class="h-12 w-auto object-contain" />
+        </a>
       </div>
-      <form class="flex md:hidden px-4 pb-2">
+      <!-- Desktop Search -->
+      <form class="hidden md:flex flex-1 max-w-2xl mx-8">
         <div class="relative w-full">
-          <input
-            type="text"
-            placeholder="Where do you want to go?"
-            class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition"
-          />
-          <span class="absolute right-3 top-2.5 text-blue-400"
-            ><i class="ri-search-line"></i
-          ></span>
+          <input id="searchInput" type="text" placeholder="Where do you want to go?"
+            class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition cursor-pointer"
+            readonly />
+          <span class="absolute right-3 top-2.5 text-blue-400">
+            <i class="ri-search-line"></i>
+          </span>
         </div>
       </form>
-      <div
-        class="hidden md:flex w-full bg-blue-300 text-white font-semibold text-sm"
-        style="background-color: #38bdf8"
-      >
-        <div class="mx-auto flex space-x-8 py-6">
-          <div class="relative group">
-            <button class="flex items-center gap-1 hover:underline">
-              International Trips <i class="ri-arrow-down-s-line"></i>
-            </button>
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="#" class="flex items-center space-x-1 text-gray-700 hover:text-blue-600">
+          <span class="text-lg"><i class="ri-calendar-2-line"></i></span>
+          <span class="text-sm">Upcoming Trips</span>
+        </a>
+        <a href="index.html" class="text-gray-700 hover:text-blue-600 text-sm">Home</a>
+        <a href="packages.html" class="text-gray-700 hover:text-blue-600 text-sm">Packages</a>
+        <a href="about.html" class="text-gray-700 hover:text-blue-600 text-sm">About Us</a>
+        <a href="blog.html" class="text-gray-700 hover:text-blue-600 text-sm">Blog</a>
+        <a href="#" class="text-blue-600"><i class="ri-facebook-line"></i></a>
+        <a href="#" class="text-blue-600"><i class="ri-instagram-line"></i></a>
+        <a href="#" class="text-blue-600"><i class="ri-whatsapp-line"></i></a>
+        <a href="#" class="text-blue-600"><i class="ri-youtube-line"></i></a>
+        <a href="#" class="text-blue-600"><i class="ri-phone-line"></i></a>
+        <a href="#"
+          class="border border-blue-500 text-blue-500 rounded-full px-5 py-2 hover:bg-blue-50 ml-2 font-semibold">
+          Contact Us
+        </a>
+      </nav>
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="block md:hidden text-3xl text-blue-600 focus:outline-none">
+        <i class="ri-menu-line"></i>
+      </button>
+    </div>
+    <!-- Mobile Search -->
+    <form class="flex md:hidden px-4 pb-2">
+      <div class="relative w-full">
+        <input type="text" placeholder="Where do you want to go?"
+          class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition" />
+        <span class="absolute right-3 top-2.5 text-blue-400">
+          <i class="ri-search-line"></i>
+        </span>
+      </div>
+    </form>
+    <!-- Dropdown Menu Bar (Desktop Only) -->
+    <div class="hidden md:flex w-full text-white font-semibold text-sm" style="background-color: #38bdf8">
+      <div class="mx-auto flex space-x-8 py-6">
+        <!-- International Trips Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 focus:outline-none text-white group-hover:text-white" style="color:white">
+            International Trips <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="absolute left-0 top-full z-20 min-w-[220px] bg-white text-gray-700 rounded-xl shadow-xl py-2
+                      opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
+                      transition-all duration-200 mt-2">
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Europe</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Thailand</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Bali</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Vietnam</a>
           </div>
-          <div class="relative group">
-            <button class="flex items-center gap-1 hover:underline">
-              Indian Trips <i class="ri-arrow-down-s-line"></i>
-            </button>
+        </div>
+        <!-- Indian Trips Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 focus:outline-none text-white group-hover:text-white" style="color:white">
+            Indian Trips <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="absolute left-0 top-full z-20 min-w-[220px] bg-white text-gray-700 rounded-xl shadow-xl py-2
+                      opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
+                      transition-all duration-200 mt-2">
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Himachal</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Kashmir</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Rajasthan</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Kerala</a>
           </div>
-          <div class="relative group">
-            <button class="flex items-center gap-1 hover:underline">
-              School Trips <i class="ri-arrow-down-s-line"></i>
-            </button>
+        </div>
+        <!-- School Trips Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 focus:outline-none text-white group-hover:text-white" style="color:white">
+            School Trips <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="absolute left-0 top-full z-20 min-w-[220px] bg-white text-gray-700 rounded-xl shadow-xl py-2
+                      opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
+                      transition-all duration-200 mt-2">
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Domestic</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">International</a>
           </div>
-          <div class="relative group">
-            <button class="flex items-center gap-1 hover:underline">
-              Inschool Camps <i class="ri-arrow-down-s-line"></i>
-            </button>
+        </div>
+        <!-- Inschool Camps Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 focus:outline-none text-white group-hover:text-white" style="color:white">
+            Inschool Camps <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="absolute left-0 top-full z-20 min-w-[220px] bg-white text-gray-700 rounded-xl shadow-xl py-2
+                      opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
+                      transition-all duration-200 mt-2">
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">STEM Camps</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Adventure Camps</a>
           </div>
-          <div class="relative group">
-            <button class="flex items-center gap-1 hover:underline">
-              Corporates Trips <i class="ri-arrow-down-s-line"></i>
-            </button>
+        </div>
+        <!-- Corporates Trips Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 focus:outline-none text-white group-hover:text-white" style="color:white">
+            Corporates Trips <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="absolute left-0 top-full z-20 min-w-[220px] bg-white text-gray-700 rounded-xl shadow-xl py-2
+                      opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
+                      transition-all duration-200 mt-2">
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Team Outing</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Offsite</a>
           </div>
-          <div class="relative group">
-            <button class="flex items-center gap-1 hover:underline">
-              Group Tours <i class="ri-arrow-down-s-line"></i>
-            </button>
+        </div>
+        <!-- Group Tours Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 focus:outline-none text-white group-hover:text-white" style="color:white">
+            Group Tours <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="absolute left-0 top-full z-20 min-w-[220px] bg-white text-gray-700 rounded-xl shadow-xl py-2
+                      opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
+                      transition-all duration-200 mt-2">
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Friends Group</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Family Group</a>
           </div>
-          <div class="relative group">
-            <button class="flex items-center gap-1 hover:underline">
-              Educational Trips <i class="ri-arrow-down-s-line"></i>
-            </button>
+        </div>
+        <!-- Educational Trips Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 focus:outline-none text-white group-hover:text-white" style="color:white">
+            Educational Trips <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="absolute left-0 top-full z-20 min-w-[220px] bg-white text-gray-700 rounded-xl shadow-xl py-2
+                      opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
+                      transition-all duration-200 mt-2">
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">National</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">International</a>
           </div>
-          <div class="relative group">
-            <button class="flex items-center gap-1 hover:underline">
-              Weekend Trips <i class="ri-arrow-down-s-line"></i>
-            </button>
+        </div>
+        <!-- Weekend Trips Dropdown -->
+        <div class="relative group">
+          <button class="flex items-center gap-1 focus:outline-none text-white group-hover:text-white" style="color:white">
+            Weekend Trips <i class="ri-arrow-down-s-line"></i>
+          </button>
+          <div class="absolute left-0 top-full z-20 min-w-[220px] bg-white text-gray-700 rounded-xl shadow-xl py-2
+                      opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto
+                      transition-all duration-200 mt-2">
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Rishikesh</a>
+            <a href="#" class="block px-6 py-2 hover:bg-blue-50">Jaipur</a>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
   <!-- Mobile Sidebar/Drawer -->
   <div id="sidebar"
-    class="fixed inset-0 z-50 bg-black bg-opacity-60 sidebar-transition transform translate-x-full md:hidden">
+    class="fixed inset-0 z-50 bg-black bg-opacity-60 sidebar-transition sidebar-closed md:hidden">
     <div class="w-80 max-w-full h-full bg-white shadow-lg flex flex-col px-6 py-5 relative">
       <div class="flex items-center justify-between mb-3">
         <h2 class="text-lg font-bold text-blue-700">Menu</h2>
@@ -155,18 +200,19 @@
         <div class="relative w-full">
           <input type="text" placeholder="Where do you want to go?"
             class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition" />
-          <span class="absolute right-3 top-2.5 text-blue-400"><i class="ri-search-line"></i></span>
+          <span class="absolute right-3 top-2.5 text-blue-400">
+            <i class="ri-search-line"></i>
+          </span>
         </div>
       </div>
       <nav class="flex flex-col space-y-4 mb-4">
         <a href="#" class="flex items-center gap-2 text-gray-800 text-base font-medium"><i
             class="ri-calendar-2-line text-xl"></i> Upcoming Trips</a>
-        <a href="#" class="text-gray-800 text-base font-medium">Packages</a>
+        <a href="packages.html" class="text-gray-800 text-base font-medium">Packages</a>
         <a href="#" class="text-gray-800 text-base font-medium">Corporate Tours</a>
-        <a href="#" class="text-gray-800 text-base font-medium">Blogs</a>
-        <a href="#" class="text-gray-800 text-base font-medium">About Us</a>
-        <a href="#" class="w-full mt-3 bg-blue-600 text-white rounded-full px-4 py-2 text-center font-semibold">Contact
-          Us</a>
+        <a href="blog.html" class="text-gray-800 text-base font-medium">Blogs</a>
+        <a href="about.html" class="text-gray-800 text-base font-medium">About Us</a>
+        <a href="#" class="w-full mt-3 bg-blue-600 text-white rounded-full px-4 py-2 text-center font-semibold">Contact Us</a>
       </nav>
       <div class="flex justify-start space-x-5 mt-auto mb-5">
         <a href="#" class="text-2xl text-blue-700"><i class="ri-facebook-line"></i></a>
@@ -177,6 +223,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Main Hero Section -->
   <section class="relative h-64 bg-primary flex items-center justify-center">
     <div class="text-center text-white px-4">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">About Wanderlust</h1>
@@ -402,97 +450,65 @@
       </form>
     </div>
   </div>
-    <footer
-      class="bg-[#112123] pt-2 pb-0 mt-10 w-full border-t-4 border-[#20e0ff]"
-    >
-      <div class="max-w-7xl mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-white">
-          <!-- Column 1: Logo + tagline -->
-          <div>
-            <h3 class="text-xl font-bold mb-4">Wanderlust</h3>
-            <p class="text-gray-300 text-[15px]">
-              Creating unforgettable travel experiences since 2015.<br />
-              Your adventure starts here.
-            </p>
-          </div>
-          <!-- Column 2: Quick Links -->
-          <div>
-            <h4 class="font-semibold mb-4 text-lg">Quick Links</h4>
-            <ul class="space-y-2 text-gray-300 text-[15px]">
-              <li>
-                <a href="/" class="hover:text-[#20e0ff] transition">Home</a>
-              </li>
-              <li>
-                <a href="packages.html" class="hover:text-[#20e0ff] transition"
-                  >Packages</a
-                >
-              </li>
-              <li>
-                <a href="about.html" class="hover:text-[#20e0ff] transition"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a href="#contact" class="hover:text-[#20e0ff] transition"
-                  >Contact</a
-                >
-                <!-- If you have a modal, trigger with JS -->
-              </li>
-              <li>
-                <a
-                  href="privacy-policy.html"
-                  class="hover:text-[#20e0ff] transition"
-                  >Privacy Policy</a
-                >
-              </li>
-              <li>
-                <a href="desclaimer.html" class="hover:text-[#20e0ff] transition"
-                  >Desclaimer</a
-                >
-              </li>
-              <li>
-                <a
-                  href="terms-and-condition.html"
-                  class="hover:text-[#20e0ff] transition"
-                  >Terms & Condition</a
-                >
-              </li>
-            </ul>
-          </div>
-          <!-- Column 3: Destinations -->
-          <div>
-            <h4 class="font-semibold mb-4 text-lg">Destinations</h4>
-            <ul class="space-y-2 text-gray-300 text-[15px]">
-              <li>Bali, Indonesia</li>
-              <li>Swiss Alps</li>
-              <li>African Safari</li>
-              <li>Patagonia</li>
-            </ul>
-          </div>
-          <!-- Column 4: Contact Info -->
-          <div>
-            <h4 class="font-semibold mb-4 text-lg">Contact Info</h4>
-            <div class="space-y-2 text-gray-300 text-[15px]">
-              <div class="flex items-center gap-2">
-                <i class="fa-solid fa-phone w-4 h-4"></i>
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div class="flex items-center gap-2">
-                <i class="fa-solid fa-envelope w-4 h-4"></i>
-                <span>info@wanderlust.com</span>
-              </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#112123] pt-2 pb-0 mt-10 w-full border-t-4 border-[#20e0ff]">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-white">
+        <!-- Column 1: Logo + tagline -->
+        <div>
+          <h3 class="text-xl font-bold mb-4">Wanderlust</h3>
+          <p class="text-gray-300 text-[15px]">
+            Creating unforgettable travel experiences since 2015.<br />
+            Your adventure starts here.
+          </p>
+        </div>
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="font-semibold mb-4 text-lg">Quick Links</h4>
+          <ul class="space-y-2 text-gray-300 text-[15px]">
+            <li><a href="/" class="hover:text-[#20e0ff] transition">Home</a></li>
+            <li><a href="packages.html" class="hover:text-[#20e0ff] transition">Packages</a></li>
+            <li><a href="about.html" class="hover:text-[#20e0ff] transition">About Us</a></li>
+            <li><a href="#contact" class="hover:text-[#20e0ff] transition">Contact</a></li>
+            <li><a href="privacy-policy.html" class="hover:text-[#20e0ff] transition">Privacy Policy</a></li>
+            <li><a href="desclaimer.html" class="hover:text-[#20e0ff] transition">Desclaimer</a></li>
+            <li><a href="terms-and-condition.html" class="hover:text-[#20e0ff] transition">Terms & Condition</a></li>
+          </ul>
+        </div>
+        <!-- Column 3: Destinations -->
+        <div>
+          <h4 class="font-semibold mb-4 text-lg">Destinations</h4>
+          <ul class="space-y-2 text-gray-300 text-[15px]">
+            <li>Bali, Indonesia</li>
+            <li>Swiss Alps</li>
+            <li>African Safari</li>
+            <li>Patagonia</li>
+          </ul>
+        </div>
+        <!-- Column 4: Contact Info -->
+        <div>
+          <h4 class="font-semibold mb-4 text-lg">Contact Info</h4>
+          <div class="space-y-2 text-gray-300 text-[15px]">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-phone w-4 h-4"></i>
+              <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-envelope w-4 h-4"></i>
+              <span>info@wanderlust.com</span>
             </div>
           </div>
         </div>
-        <div
-          class="border-t border-[#27393e] mt-10 pt-6 text-center text-gray-400 text-sm"
-        >
-          &copy; 2024 Wanderlust Travel. All rights reserved.
-        </div>
       </div>
-    </footer>
+      <div class="border-t border-[#27393e] mt-10 pt-6 text-center text-gray-400 text-sm">
+        &copy; 2024 Wanderlust Travel. All rights reserved.
+      </div>
+    </div>
+  </footer>
 
   <script>
+    // Modal logic
     function openModal() {
       document.getElementById('contactModal').classList.remove('hidden');
       document.getElementById('contactFormMsg').classList.add('hidden');
@@ -500,20 +516,41 @@
     function closeModal() {
       document.getElementById('contactModal').classList.add('hidden');
     }
-    // Optional: close modal when clicking outside
     document.getElementById('contactModal').addEventListener('click', function(e) {
       if (e.target === this) closeModal();
     });
-      document
-    .getElementById('searchInput')
-    .addEventListener('click', () => {
-      window.location.href = 'search.html';
+
+    // Mobile Sidebar logic
+    const sidebar = document.getElementById('sidebar');
+    const menuBtn = document.getElementById('menuBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    menuBtn.addEventListener('click', function () {
+      sidebar.classList.remove('sidebar-closed');
+      sidebar.classList.add('sidebar-open');
     });
-  document
-    .getElementById('searchInput')
-    .addEventListener('focus', () => {
-      window.location.href = 'search.html';
+    closeBtn.addEventListener('click', function () {
+      sidebar.classList.remove('sidebar-open');
+      sidebar.classList.add('sidebar-closed');
     });
+    // Close sidebar if clicking outside
+    sidebar.addEventListener('click', function (e) {
+      if (e.target === sidebar) {
+        sidebar.classList.remove('sidebar-open');
+        sidebar.classList.add('sidebar-closed');
+      }
+    });
+
+    // Redirect desktop search input
+    document
+      .getElementById('searchInput')
+      .addEventListener('click', () => {
+        window.location.href = 'search.html';
+      });
+    document
+      .getElementById('searchInput')
+      .addEventListener('focus', () => {
+        window.location.href = 'search.html';
+      });
   </script>
 </body>
 </html>
