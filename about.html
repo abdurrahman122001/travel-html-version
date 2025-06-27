@@ -29,9 +29,7 @@
   <header class="w-full bg-white shadow sticky top-0 z-40">
     <div class="flex items-center justify-between px-4 md:px-12 py-3">
       <div class="flex items-center space-x-3">
-        <a href="index.html">
-          <img src="logo.png" alt="Logo" class="h-12 w-auto object-contain" />
-        </a>
+        <a href="index.html"><img src="logo.png" alt="Logo" class="h-20 w-auto object-contain"></a>
       </div>
       <!-- Desktop Search -->
       <form class="hidden md:flex flex-1 max-w-2xl mx-8">
@@ -187,50 +185,147 @@
   </header>
 
   <!-- Mobile Sidebar/Drawer -->
-  <div id="sidebar"
-    class="fixed inset-0 z-50 bg-black bg-opacity-60 sidebar-transition sidebar-closed md:hidden">
-    <div class="w-80 max-w-full h-full bg-white shadow-lg flex flex-col px-6 py-5 relative">
-      <div class="flex items-center justify-between mb-3">
-        <h2 class="text-lg font-bold text-blue-700">Menu</h2>
-        <button id="closeBtn" class="text-2xl text-blue-700">
-          <i class="ri-close-line"></i>
-        </button>
+<div id="sidebar"
+    class="fixed inset-0 z-50 bg-black bg-opacity-60 sidebar-transition transform translate-x-full md:hidden">
+<div class="w-80 max-w-full h-full bg-white shadow-lg flex flex-col px-6 py-5 relative overflow-y-auto">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-lg font-bold text-blue-700">Menu</h2>
+      <button id="closeBtn" class="text-2xl text-blue-700">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+    <div class="mb-4">
+      <div class="relative w-full">
+        <input type="text" placeholder="Where do you want to go?"
+          class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition" />
+        <span class="absolute right-3 top-2.5 text-blue-400"><i class="ri-search-line"></i></span>
       </div>
-      <div class="mb-4">
-        <div class="relative w-full">
-          <input type="text" placeholder="Where do you want to go?"
-            class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition" />
-          <span class="absolute right-3 top-2.5 text-blue-400">
-            <i class="ri-search-line"></i>
-          </span>
+    </div>
+    <!-- Collapsible nav -->
+    <nav class="flex flex-col space-y-2 mb-4" x-data="{ 
+      open1: false, open2: false, open3: false, open4: false, open5: false, open6: false, open7: false 
+    }">
+      <!-- International Trips -->
+      <div>
+        <button @click="open1 = !open1" class="w-full flex items-center justify-between text-gray-800 text-base font-medium py-2">
+          <span><i class="ri-earth-line mr-2"></i>International Trips</span>
+          <i :class="open1 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'" class="text-xl"></i>
+        </button>
+        <div x-show="open1" class="pl-6 flex flex-col space-y-1 mt-1" x-cloak>
+          <a href="#" class="py-1">Europe</a>
+          <a href="#" class="py-1">Thailand</a>
+          <a href="#" class="py-1">Bali</a>
+          <a href="#" class="py-1">Vietnam</a>
         </div>
       </div>
-      <nav class="flex flex-col space-y-4 mb-4">
-        <a href="#" class="flex items-center gap-2 text-gray-800 text-base font-medium"><i
-            class="ri-calendar-2-line text-xl"></i> Upcoming Trips</a>
-        <a href="packages.html" class="text-gray-800 text-base font-medium">Packages</a>
-        <a href="#" class="text-gray-800 text-base font-medium">Corporate Tours</a>
-        <a href="blog.html" class="text-gray-800 text-base font-medium">Blogs</a>
-        <a href="about.html" class="text-gray-800 text-base font-medium">About Us</a>
-        <a href="#" class="w-full mt-3 bg-blue-600 text-white rounded-full px-4 py-2 text-center font-semibold">Contact Us</a>
-      </nav>
-      <div class="flex justify-start space-x-5 mt-auto mb-5">
-        <a href="#" class="text-2xl text-blue-700"><i class="ri-facebook-line"></i></a>
-        <a href="#" class="text-2xl text-blue-700"><i class="ri-instagram-line"></i></a>
-        <a href="#" class="text-2xl text-blue-700"><i class="ri-whatsapp-line"></i></a>
-        <a href="#" class="text-2xl text-blue-700"><i class="ri-youtube-line"></i></a>
-        <a href="#" class="text-2xl text-blue-700"><i class="ri-phone-line"></i></a>
+      <!-- Indian Trips -->
+      <div>
+        <button @click="open2 = !open2" class="w-full flex items-center justify-between text-gray-800 text-base font-medium py-2">
+          <span><i class="ri-map-pin-line mr-2"></i>Indian Trips</span>
+          <i :class="open2 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'" class="text-xl"></i>
+        </button>
+        <div x-show="open2" class="pl-6 flex flex-col space-y-1 mt-1" x-cloak>
+          <a href="#" class="py-1">Himachal</a>
+          <a href="#" class="py-1">Kashmir</a>
+          <a href="#" class="py-1">Rajasthan</a>
+          <a href="#" class="py-1">Kerala</a>
+        </div>
       </div>
+      <!-- School Trips -->
+      <div>
+        <button @click="open3 = !open3" class="w-full flex items-center justify-between text-gray-800 text-base font-medium py-2">
+          <span><i class="ri-school-line mr-2"></i>School Trips</span>
+          <i :class="open3 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'" class="text-xl"></i>
+        </button>
+        <div x-show="open3" class="pl-6 flex flex-col space-y-1 mt-1" x-cloak>
+          <a href="#" class="py-1">Domestic</a>
+          <a href="#" class="py-1">International</a>
+        </div>
+      </div>
+      <!-- Inschool Camps -->
+      <div>
+        <button @click="open4 = !open4" class="w-full flex items-center justify-between text-gray-800 text-base font-medium py-2">
+          <span><i class="ri-building-4-line mr-2"></i>Inschool Camps</span>
+          <i :class="open4 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'" class="text-xl"></i>
+        </button>
+        <div x-show="open4" class="pl-6 flex flex-col space-y-1 mt-1" x-cloak>
+          <a href="#" class="py-1">STEM Camps</a>
+          <a href="#" class="py-1">Adventure Camps</a>
+        </div>
+      </div>
+      <!-- Corporates Trips -->
+      <div>
+        <button @click="open5 = !open5" class="w-full flex items-center justify-between text-gray-800 text-base font-medium py-2">
+          <span><i class="ri-team-line mr-2"></i>Corporates Trips</span>
+          <i :class="open5 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'" class="text-xl"></i>
+        </button>
+        <div x-show="open5" class="pl-6 flex flex-col space-y-1 mt-1" x-cloak>
+          <a href="#" class="py-1">Team Outing</a>
+          <a href="#" class="py-1">Offsite</a>
+        </div>
+      </div>
+      <!-- Group Tours -->
+      <div>
+        <button @click="open6 = !open6" class="w-full flex items-center justify-between text-gray-800 text-base font-medium py-2">
+          <span><i class="ri-group-line mr-2"></i>Group Tours</span>
+          <i :class="open6 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'" class="text-xl"></i>
+        </button>
+        <div x-show="open6" class="pl-6 flex flex-col space-y-1 mt-1" x-cloak>
+          <a href="#" class="py-1">Friends Group</a>
+          <a href="#" class="py-1">Family Group</a>
+        </div>
+      </div>
+      <!-- Educational Trips -->
+      <div>
+        <button @click="open7 = !open7" class="w-full flex items-center justify-between text-gray-800 text-base font-medium py-2">
+          <span><i class="ri-book-2-line mr-2"></i>Educational Trips</span>
+          <i :class="open7 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'" class="text-xl"></i>
+        </button>
+        <div x-show="open7" class="pl-6 flex flex-col space-y-1 mt-1" x-cloak>
+          <a href="#" class="py-1">National</a>
+          <a href="#" class="py-1">International</a>
+        </div>
+      </div>
+      <!-- Weekend Trips -->
+      <div>
+        <button @click="open8 = !open8" class="w-full flex items-center justify-between text-gray-800 text-base font-medium py-2">
+          <span><i class="ri-sun-line mr-2"></i>Weekend Trips</span>
+          <i :class="open8 ? 'ri-arrow-up-s-line' : 'ri-arrow-down-s-line'" class="text-xl"></i>
+        </button>
+        <div x-show="open8" class="pl-6 flex flex-col space-y-1 mt-1" x-cloak>
+          <a href="#" class="py-1">Rishikesh</a>
+          <a href="#" class="py-1">Jaipur</a>
+        </div>
+      </div>
+      <!-- Divider -->
+      <div class="h-px bg-blue-100 my-3"></div>
+      <!-- Other pages -->
+      <a href="#" class="flex items-center gap-2 text-gray-800 text-base font-medium"><i class="ri-calendar-2-line text-xl"></i> Upcoming Trips</a>
+      <a href="index.html" class="text-gray-800 text-base font-medium">Home</a>
+      <a href="packages.html" class="text-gray-800 text-base font-medium">Packages</a>
+      <a href="about.html" class="text-gray-800 text-base font-medium">About Us</a>
+      <a href="blog.html" class="text-gray-800 text-base font-medium">Blog</a>
+      <a href="#" class="w-full mt-3 bg-blue-600 text-white rounded-full px-4 py-2 text-center font-semibold">Contact Us</a>
+    </nav>
+    <!-- Socials -->
+    <div class="flex justify-start space-x-5 mt-auto mb-5">
+      <a href="#" class="text-2xl text-blue-700"><i class="ri-facebook-line"></i></a>
+      <a href="#" class="text-2xl text-blue-700"><i class="ri-instagram-line"></i></a>
+      <a href="#" class="text-2xl text-blue-700"><i class="ri-whatsapp-line"></i></a>
+      <a href="#" class="text-2xl text-blue-700"><i class="ri-youtube-line"></i></a>
+      <a href="#" class="text-2xl text-blue-700"><i class="ri-phone-line"></i></a>
     </div>
   </div>
+</div>
+
 
   <!-- Main Hero Section -->
-  <section class="relative h-64 bg-primary flex items-center justify-center">
-    <div class="text-center text-white px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">About Wanderlust</h1>
-      <p class="text-xl">Creating extraordinary travel experiences since 2020</p>
-    </div>
-  </section>
+<section class="relative h-80 bg-primary flex items-center justify-center" style="background-image: url('https://images.wanderon.in/new-homepage-data/cta%20homepage%20-%20desktop.png')">
+  <div class="text-center text-white px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">About Wanderlust</h1>
+    <p class="text-xl">Creating extraordinary travel experiences since 2020</p>
+  </div>
+</section>
 
   <!-- Our Story -->
   <section class="py-20 px-4">
