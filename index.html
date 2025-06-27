@@ -988,6 +988,116 @@
       </div>
     </div>
   </section>
+  <!-- Swiper CSS (put this in <head> if not included globally) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<section class="py-20 bg-blue-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4 text-blue-900">
+        What Our Travelers Say
+      </h2>
+      <p class="text-xl text-blue-700">
+        Real experiences from real adventurers
+      </p>
+    </div>
+    <div class="relative">
+      <!-- Custom Prev Arrow -->
+      <button class="testimonial-swiper-prev absolute left-[-32px] top-1/2 -translate-y-1/2 z-10 bg-white border border-blue-300 rounded-full w-11 h-11 flex items-center justify-center shadow hover:bg-blue-100 transition hidden md:flex" aria-label="Previous">
+        <svg fill="none" stroke="#3b82f6" stroke-width="3" viewBox="0 0 24 24" width="28" height="28">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.5 19.5L8.5 12l7-7.5" />
+        </svg>
+      </button>
+      <!-- Custom Next Arrow -->
+      <button class="testimonial-swiper-next absolute right-[-32px] top-1/2 -translate-y-1/2 z-10 bg-white border border-blue-300 rounded-full w-11 h-11 flex items-center justify-center shadow hover:bg-blue-100 transition hidden md:flex" aria-label="Next">
+        <svg fill="none" stroke="#3b82f6" stroke-width="3" viewBox="0 0 24 24" width="28" height="28">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8.5 4.5l7 7.5-7 7.5" />
+        </svg>
+      </button>
+      <!-- Swiper -->
+      <div class="swiper testimonial-swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide h-full">
+            <div class="h-full bg-white border border-blue-200 hover:shadow-lg transition-shadow rounded-lg overflow-hidden">
+              <div class="p-6 flex flex-col justify-between h-full">
+                <div>
+                  <div class="flex items-center gap-1 mb-4">
+                    <!-- 5 Stars SVG -->
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                  </div>
+                  <p class="mb-6 italic">"Absolutely the best trip I've ever had! The itinerary was perfect and every detail was handled with care. Highly recommended!"</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Maria Gomez" class="w-12 h-12 rounded-full object-cover">
+                  <div>
+                    <p class="font-semibold text-blue-900">Maria Gomez</p>
+                    <p class="text-sm text-blue-600">Verified Traveler</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide h-full">
+            <div class="h-full bg-white border border-blue-200 hover:shadow-lg transition-shadow rounded-lg overflow-hidden">
+              <div class="p-6 flex flex-col justify-between h-full">
+                <div>
+                  <div class="flex items-center gap-1 mb-4">
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                  </div>
+                  <p class="mb-6 italic">"A wonderful and well-organized experience! All arrangements exceeded my expectations. Thank you!"</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Alex Carter" class="w-12 h-12 rounded-full object-cover">
+                  <div>
+                    <p class="font-semibold text-blue-900">Alex Carter</p>
+                    <p class="text-sm text-blue-600">Verified Traveler</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide h-full">
+            <div class="h-full bg-white border border-blue-200 hover:shadow-lg transition-shadow rounded-lg overflow-hidden">
+              <div class="p-6 flex flex-col justify-between h-full">
+                <div>
+                  <div class="flex items-center gap-1 mb-4">
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                    <svg class="w-4 h-4 fill-yellow-400 text-yellow-400" viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,21 12,17 5,21 7,14 2,9 9,9"/></svg>
+                  </div>
+                  <p class="mb-6 italic">"Fantastic guides, stunning locations, and seamless logistics. Will travel again!"</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Rahul Patel" class="w-12 h-12 rounded-full object-cover">
+                  <div>
+                    <p class="font-semibold text-blue-900">Rahul Patel</p>
+                    <p class="text-sm text-blue-600">Verified Traveler</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Add more slides as needed -->
+        </div>
+        <div class="swiper-pagination mt-6"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
   <section class="py-12 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4">
@@ -1196,6 +1306,23 @@
       }
     }
     type();
+      new Swiper('.testimonial-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 24,
+    loop: true,
+    navigation: {
+      nextEl: '.testimonial-swiper-next',
+      prevEl: '.testimonial-swiper-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 }
+    }
+  });
   </script>
 </body>
 
