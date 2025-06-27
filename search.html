@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Search – Breakout Wanderers</title>
+  <!-- Tailwind Browser CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- Remix Icon (for other nav icons) -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-pM+aFUt8sT+RA8t5x4GdtX+kIQl1c1TtTi2dT3y6bXQGn2W5C/bY5PJG+oi+Yq4CW8a3Cxv4HTKuZy9GN+TDQw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navigation -->
+  <header class="w-full bg-white shadow">
+    <div class="flex items-center justify-between px-4 md:px-12 py-3">
+      <div class="flex items-center space-x-3">
+        <img src="logo.png" alt="Logo" class="h-10 w-auto object-contain" />
+      </div>
+      <form class="hidden md:flex flex-1 max-w-2xl mx-8">
+        <div class="relative w-full">
+          <input
+            type="text"
+            placeholder="Where do you want to go?"
+            class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition cursor-pointer"
+            readonly
+            onfocus="window.location.href='search.html'"
+            onclick="window.location.href='search.html'"
+          />
+          <span class="absolute right-3 top-2.5 text-blue-400">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </form>
+      <nav class="hidden md:flex items-center space-x-6">
+        <a href="#" class="flex items-center space-x-1 text-gray-700 hover:text-blue-600">
+          <i class="ri-calendar-2-line text-lg"></i>
+          <span class="text-sm">Upcoming Trips</span>
+        </a>
+        <a href="index.html" class="text-gray-700 hover:text-blue-600 text-sm">Home</a>
+        <a href="packages.html" class="text-gray-700 hover:text-blue-600 text-sm">Packages</a>
+        <a href="about.html" class="text-gray-700 hover:text-blue-600 text-sm">About Us</a>
+        <a href="blog.html" class="text-gray-700 hover:text-blue-600 text-sm">Blog</a>
+        <a href="#" class="text-blue-600"><i class="ri-facebook-line"></i></a>
+        <a href="#" class="text-blue-600"><i class="ri-instagram-line"></i></a>
+        <a href="#" class="text-blue-600"><i class="ri-whatsapp-line"></i></a>
+        <a href="#" class="text-blue-600"><i class="ri-youtube-line"></i></a>
+        <a href="#" class="text-blue-600"><i class="ri-phone-line"></i></a>
+        <a
+          href="#"
+          class="border border-blue-500 text-blue-500 rounded-full px-5 py-2 hover:bg-blue-50 ml-2 font-semibold"
+        >
+          Contact Us
+        </a>
+      </nav>
+      <button id="menuBtn" class="block md:hidden text-3xl text-blue-600 focus:outline-none">
+        <i class="ri-menu-line"></i>
+      </button>
+    </div>
+    <form class="flex md:hidden px-4 pb-2">
+      <div class="relative w-full">
+        <input
+          type="text"
+          placeholder="Where do you want to go?"
+          class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition cursor-pointer"
+          readonly
+          onfocus="window.location.href='search.html'"
+          onclick="window.location.href='search.html'"
+        />
+        <span class="absolute right-3 top-2.5 text-blue-400">
+          <i class="fas fa-search"></i>
+        </span>
+      </div>
+    </form>
+    <div
+      class="hidden md:flex w-full bg-blue-300 text-white font-semibold text-sm"
+      style="background-color: #38bdf8"
+    >
+      <div class="mx-auto flex space-x-8 py-6">
+        <button class="flex items-center gap-1 hover:underline">
+          International Trips <i class="ri-arrow-down-s-line"></i>
+        </button>
+        <button class="flex items-center gap-1 hover:underline">
+          Indian Trips <i class="ri-arrow-down-s-line"></i>
+        </button>
+        <button class="flex items-center gap-1 hover:underline">
+          School Trips <i class="ri-arrow-down-s-line"></i>
+        </button>
+        <button class="flex items-center gap-1 hover:underline">
+          In-School Camps <i class="ri-arrow-down-s-line"></i>
+        </button>
+        <button class="flex items-center gap-1 hover:underline">
+          Corporate Trips <i class="ri-arrow-down-s-line"></i>
+        </button>
+        <button class="flex items-center gap-1 hover:underline">
+          Group Tours <i class="ri-arrow-down-s-line"></i>
+        </button>
+        <button class="flex items-center gap-1 hover:underline">
+          Educational Trips <i class="ri-arrow-down-s-line"></i>
+        </button>
+        <button class="flex items-center gap-1 hover:underline">
+          Weekend Trips <i class="ri-arrow-down-s-line"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar -->
+  <div
+    id="sidebar"
+    class="fixed inset-0 z-50 bg-black bg-opacity-60 transform translate-x-full transition-transform md:hidden"
+  >
+    <div class="w-80 h-full bg-white shadow-lg p-6 relative">
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-lg font-bold text-blue-700">Menu</h2>
+        <button id="closeBtn" class="text-2xl text-blue-700">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+      <div class="mb-4">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Where do you want to go?"
+            class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition cursor-pointer"
+            readonly
+            onclick="window.location.href='search.html'"
+          />
+          <span class="absolute right-3 top-2.5 text-blue-400">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </div>
+      <nav class="flex flex-col space-y-4 mb-6">
+        <a href="#" class="flex items-center gap-2 text-gray-800"><i class="ri-calendar-2-line text-xl"></i> Upcoming Trips</a>
+        <a href="#" class="text-gray-800">Packages</a>
+        <a href="#" class="text-gray-800">Corporate Tours</a>
+        <a href="#" class="text-gray-800">Blog</a>
+        <a href="#" class="text-gray-800">About Us</a>
+        <a href="#" class="w-full bg-blue-600 text-white rounded-full py-2 text-center">Contact Us</a>
+      </nav>
+      <div class="flex space-x-4">
+        <a href="#" class="text-blue-700"><i class="ri-facebook-line"></i></a>
+        <a href="#" class="text-blue-700"><i class="ri-instagram-line"></i></a>
+        <a href="#" class="text-blue-700"><i class="ri-whatsapp-line"></i></a>
+        <a href="#" class="text-blue-700"><i class="ri-youtube-line"></i></a>
+        <a href="#" class="text-blue-700"><i class="ri-phone-line"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Hero Section -->
+  <div class="min-h-screen bg-white flex items-center justify-center relative">
+    <div class="absolute top-24 w-full px-4 flex justify-center">
+      <div class="flex w-[600px] max-w-[90vw] bg-white border border-blue-200 rounded-xl overflow-hidden shadow-2xl">
+        <input
+          type="text"
+          placeholder="Where do you want to go?"
+          class="flex-1 px-6 py-5 bg-blue-50 text-lg placeholder-gray-700 outline-none"
+        />
+        <button
+          class="bg-yellow-400 hover:bg-yellow-500 transition px-7 flex items-center justify-center"
+          style="min-height:60px"
+        >
+          <i class="fas fa-search text-gray-800 w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#112123] border-t-4 border-[#20e0ff] pt-6 text-gray-300">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-4 gap-8 text-white">
+      <div>
+        <h3 class="text-xl font-bold mb-4">Wanderlust</h3>
+        <p class="text-gray-300 text-sm">Creating unforgettable travel experiences since 2015.<br>Your adventure starts here.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-[#20e0ff]">Home</a></li>
+          <li><a href="packages.html" class="hover:text-[#20e0ff]">Packages</a></li>
+          <li><a href="about.html" class="hover:text-[#20e0ff]">About Us</a></li>
+          <li><a href="#contact" class="hover:text-[#20e0ff]">Contact</a></li>
+          <li><a href="privacy-policy.html" class="hover:text-[#20e0ff]">Privacy Policy</a></li>
+          <li><a href="desclaimer.html" class="hover:text-[#20e0ff]">Disclaimer</a></li>
+          <li><a href="terms-and-condition.html" class="hover:text-[#20e0ff]">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Destinations</h4>
+        <ul class="space-y-2 text-sm">
+          <li>Bali, Indonesia</li>
+          <li>Swiss Alps</li>
+          <li>African Safari</li>
+          <li>Patagonia</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold mb-3">Contact Info</h4>
+        <div class="space-y-2 text-sm">
+          <div class="flex items-center gap-2"><i class="fas fa-phone"></i><span>+1 (555) 123-4567</span></div>
+          <div class="flex items-center gap-2"><i class="fas fa-envelope"></i><span>info@wanderlust.com</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-[#27393e] pt-4 text-center text-gray-500 text-xs">
+      &copy; 2024 Wanderlust Travel. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // Sidebar toggle
+    const sidebar = document.getElementById('sidebar');
+    document.getElementById('menuBtn').onclick = () => sidebar.classList.remove('translate-x-full');
+    document.getElementById('closeBtn').onclick = () => sidebar.classList.add('translate-x-full');
+  </script>
+</body>
+</html>

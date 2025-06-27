@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>International Trips - Card Effect Swiper</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+
+    .intl-swiper-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding: 1.2rem 1rem 0.6rem 1rem;
+      box-sizing: border-box;
+      background: #fffbe0;
+      gap: 8px;
+    }
+    .intl-swiper-header h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #2e3839;
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .intl-swiper-header img {
+      margin-left: auto;
+      width: 130px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .intl-swiper-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+      padding-bottom: 1.5rem;
+    }
+    /* Swiper Styles */
+    swiper-container.intl-swiper {
+      width: 170px;
+      height: 350px;
+      margin: 0 auto;
+      --swiper-theme-color: #fffbe0;
+    }
+    swiper-slide.intl-swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+      min-height: 320px;
+    }
+
+    /* Fallback background if image missing */
+    swiper-slide.intl-swiper-slide:nth-child(1n) { background-color: rgb(206, 17, 17); }
+    swiper-slide.intl-swiper-slide:nth-child(2n) { background-color: rgb(0, 140, 255); }
+    swiper-slide.intl-swiper-slide:nth-child(3n) { background-color: rgb(10, 184, 111); }
+    swiper-slide.intl-swiper-slide:nth-child(4n) { background-color: rgb(211, 122, 7); }
+    swiper-slide.intl-swiper-slide:nth-child(5n) { background-color: rgb(118, 163, 12); }
+    swiper-slide.intl-swiper-slide:nth-child(6n) { background-color: rgb(180, 10, 47); }
+    swiper-slide.intl-swiper-slide:nth-child(7n) { background-color: rgb(35, 99, 19); }
+    swiper-slide.intl-swiper-slide:nth-child(8n) { background-color: rgb(0, 68, 255); }
+    swiper-slide.intl-swiper-slide:nth-child(9n) { background-color: rgb(218, 12, 218); }
+
+    .slide-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.15);
+      transition: transform 0.35s;
+    }
+
+    .slide-overlay-top {
+      position: absolute;
+      top: 26px;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+      text-align: center;
+      padding: 0 10px;
+    }
+    .slide-overlay-top .slide-desc {
+      font-size: 12px;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.03em;
+      background: rgba(0,0,0,0.23);
+      padding: 4px 10px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+    .slide-overlay-bottom {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      z-index: 3;
+      padding: 0;
+    }
+    .slide-overlay-bottom-inner {
+      background: rgba(0,0,0,0.83);
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+      padding: 18px 18px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .slide-title {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+    .slide-price {
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* Only show this section on mobile */
+    @media (min-width: 768px) {
+      .mobile-only-section { display: none !important; }
+    }
+    @media (max-width: 450px) {
+      swiper-container.intl-swiper { width: 98vw !important; max-width: 360px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mobile-only-section" style="background:#fffbe0;">
+    <div class="intl-swiper-header">
+      <h2>International Trips</h2>
+      <img src="https://images.wanderon.in/new-homepage-data/assets/international-image" alt="International SVG" />
+    </div>
+    <div class="intl-swiper-wrapper">
+      <swiper-container class="intl-swiper" effect="cards" grab-cursor="true">
+        <!-- Slide 1 -->
+        <swiper-slide class="intl-swiper-slide">
+          <img class="slide-img" src="https://images.wanderon.in/europe_card?updatedAt=1690541894161" alt="Europe" />
+          <div class="slide-overlay-top">
+            <span class="slide-desc">The Canvas of Your Dreams</span>
+          </div>
+          <div class="slide-overlay-bottom">
+            <div class="slide-overlay-bottom-inner">
+              <span class="slide-title">Europe</span>
+              <span class="slide-price">Starting Price Rs. 1,49,999/-</span>
+            </div>
+          </div>
+        </swiper-slide>
+        <!-- Slide 2 -->
+        <swiper-slide class="intl-swiper-slide">
+          <img class="slide-img" src="https://images.wanderon.in/Georgia-card?updatedAt=173148908290" alt="Georgia" />
+          <div class="slide-overlay-top">
+            <span class="slide-desc">The Canvas of Your Dreams</span>
+          </div>
+          <div class="slide-overlay-bottom">
+            <div class="slide-overlay-bottom-inner">
+              <span class="slide-title">Georgia</span>
+              <span class="slide-price">Starting Price Rs. 1,29,999/-</span>
+            </div>
+          </div>
+        </swiper-slide>
+        <!-- Slide 3 -->
+        <swiper-slide class="intl-swiper-slide">
+          <img class="slide-img" src="https://images.wanderon.in/bali_card?updatedAt=1690541894161" alt="Bali" />
+          <div class="slide-overlay-top">
+            <span class="slide-desc">The Canvas of Your Dreams</span>
+          </div>
+          <div class="slide-overlay-bottom">
+            <div class="slide-overlay-bottom-inner">
+              <span class="slide-title">Bali</span>
+              <span class="slide-price">Starting Price Rs. 1,14,999/-</span>
+            </div>
+          </div>
+        </swiper-slide>
+        <!-- Slide 4 -->
+        <swiper-slide class="intl-swiper-slide">
+          <img class="slide-img" src="https://images.wanderon.in/vietnam_card?updatedAt=1690541894161" alt="Vietnam" />
+          <div class="slide-overlay-top">
+            <span class="slide-desc">The Canvas of Your Dreams</span>
+          </div>
+          <div class="slide-overlay-bottom">
+            <div class="slide-overlay-bottom-inner">
+              <span class="slide-title">Vietnam</span>
+              <span class="slide-price">Starting Price Rs. 99,999/-</span>
+            </div>
+          </div>
+        </swiper-slide>
+        <!-- Slide 5 -->
+        <swiper-slide class="intl-swiper-slide">
+          <img class="slide-img" src="https://images.wanderon.in/thailand_card?updatedAt=1690541894161" alt="Thailand" />
+          <div class="slide-overlay-top">
+            <span class="slide-desc">The Canvas of Your Dreams</span>
+          </div>
+          <div class="slide-overlay-bottom">
+            <div class="slide-overlay-bottom-inner">
+              <span class="slide-title">Thailand</span>
+              <span class="slide-price">Starting Price Rs. 1,09,999/-</span>
+            </div>
+          </div>
+        </swiper-slide>
+        <!-- Slide 6 -->
+        <swiper-slide class="intl-swiper-slide">
+          <img class="slide-img" src="https://wanderon-sales.s3.ap-south-1.amazonaws.com/Spain+card.webp" alt="Spain" />
+          <div class="slide-overlay-top">
+            <span class="slide-desc">The Canvas of Your Dreams</span>
+          </div>
+          <div class="slide-overlay-bottom">
+            <div class="slide-overlay-bottom-inner">
+              <span class="slide-title">Spain</span>
+              <span class="slide-price">Starting Price Rs. 1,69,999/-</span>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+
+  <!-- Swiper Cards Web Component -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+</body>
+</html>

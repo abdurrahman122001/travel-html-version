@@ -1,204 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Europe Tour Landing</title>
-  <!-- Tailwind browser CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <!-- Remix icons for social icons -->
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <meta charset="UTF-8">
+  <title>About Wanderlust</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Remix Icon CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
   <style>
-    .swiper-button-custom {
-      background: #38bdf8;
-      border-radius: 9999px;
-      width: 50px;
-      height: 50px;
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 24px rgba(80, 160, 180, 0.18);
-      color: #fff;
-      font-size: 1rem;
-      position: absolute;
-      top: 50% !important;
-      transform: translateY(-50%);
-      z-index: 999;
-      border: none;
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-
-    .swiper-button-custom:hover {
-      background: #52aec5;
-    }
-
-    /* left/right positioning */
-    .swiper-button-prev.swiper-button-custom {
-      left: -32px;
-    }
-
-    .swiper-button-next.swiper-button-custom {
-      right: -32px;
-    }
-
-    .swiper-button-prev:after,
-    .swiper-button-next:after {
-      display: none !important;
-    }
-
-    @media (max-width: 1024px) {
-      .swiper-button-custom {
-        display: none !important;
-      }
-    }
-
-    /* Activities Swiper custom arrows */
-    .swiper-button-activity {
-      box-shadow: 0 1.5px 10px rgba(0, 0, 0, .12);
-      width: 44px;
-      height: 44px;
-      background: #fff;
-      border-radius: 9999px;
-      border: 4px solid #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 20;
-      transition: background 0.15s;
-    }
-
-    .swiper-button-activity svg {
-      width: 32px;
-      height: 32px;
-      color: #222;
-    }
-
-    @media (max-width: 768px) {
-      .swiper-button-activity {
-        display: none !important;
-      }
-    }
-
-    .trips-swiper-prev,
-    .trips-swiper-next {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-
-      .trips-swiper-prev,
-      .trips-swiper-next {
-        display: flex;
-      }
-    }
-
-    .swiper-pagination-bullet {
-      background: #ddd;
-      opacity: 1;
-    }
-
-    .swiper-pagination-bullet-active {
-      background: #87bdd8;
-      width: 18px;
-      border-radius: 12px;
-    }
+    .bg-primary { background-color: #38bdf8; }
+    .text-primary { color: #38bdf8; }
+    .bg-muted { background-color: #f3f4f6; }
+    .text-muted-foreground { color: #64748b; }
+    .bg-primary\/10 { background-color: rgb(56 189 248 / 0.10); }
+    .text-primary-foreground { color: #fff; }
   </style>
 </head>
-
-<body class="bg-gray-50">
-
-  <!-- HEADER + NAVIGATION -->
-  <header class="w-full bg-white shadow">
-    <div class="flex items-center justify-between px-4 md:px-12 py-3">
-      <div class="flex items-center space-x-3">
-        <img src="logo.png" alt="Logo" class="h-10 w-auto object-contain" />
+<body class="min-h-screen bg-white flex flex-col">
+    <header class="w-full bg-white shadow">
+      <div class="flex items-center justify-between px-4 md:px-12 py-3">
+        <div class="flex items-center space-x-3">
+          <img src="logo.png" alt="Logo" class="h-10 w-auto object-contain" />
+        </div>
+        <form class="hidden md:flex flex-1 max-w-2xl mx-8">
+          <div class="relative w-full">
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Where do you want to go?"
+              class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition cursor-pointer"
+              readonly
+            />
+            <span class="absolute right-3 top-2.5 text-blue-400"
+              ><i class="ri-search-line"></i
+            ></span>
+          </div>
+        </form>
+        <nav class="hidden md:flex items-center space-x-6">
+          <a
+            href="#"
+            class="flex items-center space-x-1 text-gray-700 hover:text-blue-600"
+            ><span class="text-lg"><i class="ri-calendar-2-line"></i></span
+            ><span class="text-sm">Upcoming Trips</span></a
+          >
+          <a href="index.html" class="text-gray-700 hover:text-blue-600 text-sm"
+            >Home</a
+          >
+          <a
+            href="packages.html"
+            class="text-gray-700 hover:text-blue-600 text-sm"
+            >Packages</a
+          >
+          <a href="about.html" class="text-gray-700 hover:text-blue-600 text-sm"
+            >About Us</a
+          >
+          <a href="blog.html" class="text-gray-700 hover:text-blue-600 text-sm"
+            >Blog</a
+          >
+          <a href="#" class="text-blue-600"><i class="ri-facebook-line"></i></a>
+          <a href="#" class="text-blue-600"
+            ><i class="ri-instagram-line"></i
+          ></a>
+          <a href="#" class="text-blue-600"><i class="ri-whatsapp-line"></i></a>
+          <a href="#" class="text-blue-600"><i class="ri-youtube-line"></i></a>
+          <a href="#" class="text-blue-600"><i class="ri-phone-line"></i></a>
+          <a
+            href="#"
+            class="border border-blue-500 text-blue-500 rounded-full px-5 py-2 hover:bg-blue-50 ml-2 font-semibold"
+            >Contact Us</a
+          >
+        </nav>
+        <button
+          id="menuBtn"
+          class="block md:hidden text-3xl text-blue-600 focus:outline-none"
+        >
+          <i class="ri-menu-line"></i>
+        </button>
       </div>
-      <form class="hidden md:flex flex-1 max-w-2xl mx-8">
+      <form class="flex md:hidden px-4 pb-2">
         <div class="relative w-full">
-          <input type="text" placeholder="Where do you want to go?"
-            class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition" />
-          <span class="absolute right-3 top-2.5 text-blue-400"><i class="ri-search-line"></i></span>
+          <input
+            type="text"
+            placeholder="Where do you want to go?"
+            class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition"
+          />
+          <span class="absolute right-3 top-2.5 text-blue-400"
+            ><i class="ri-search-line"></i
+          ></span>
         </div>
       </form>
-      <nav class="hidden md:flex items-center space-x-6">
-        <a href="#" class="flex items-center space-x-1 text-gray-700 hover:text-blue-600"><span class="text-lg"><i
-              class="ri-calendar-2-line"></i></span><span class="text-sm">Upcoming
-            Trips</span></a>
-        <a href="#" class="text-gray-700 hover:text-blue-600 text-sm">Home</a>
-        <a href="#" class="text-gray-700 hover:text-blue-600 text-sm">Packages</a>
-        <a href="#" class="text-gray-700 hover:text-blue-600 text-sm">About Us</a>
-        <a href="#" class="text-gray-700 hover:text-blue-600 text-sm">Blog</a>
-        <a href="#" class="text-blue-600"><i class="ri-facebook-line"></i></a>
-        <a href="#" class="text-blue-600"><i class="ri-instagram-line"></i></a>
-        <a href="#" class="text-blue-600"><i class="ri-whatsapp-line"></i></a>
-        <a href="#" class="text-blue-600"><i class="ri-youtube-line"></i></a>
-        <a href="#" class="text-blue-600"><i class="ri-phone-line"></i></a>
-        <a href="#"
-          class="border border-blue-500 text-blue-500 rounded-full px-5 py-2 hover:bg-blue-50 ml-2 font-semibold">Contact
-          Us</a>
-      </nav>
-      <button id="menuBtn" class="block md:hidden text-3xl text-blue-600 focus:outline-none">
-        <i class="ri-menu-line"></i>
-      </button>
-    </div>
-    <form class="flex md:hidden px-4 pb-2">
-      <div class="relative w-full">
-        <input type="text" placeholder="Where do you want to go?"
-          class="w-full border border-blue-200 rounded-full py-2 px-5 pr-10 outline-none focus:ring-2 focus:ring-blue-400 transition" />
-        <span class="absolute right-3 top-2.5 text-blue-400"><i class="ri-search-line"></i></span>
-      </div>
-    </form>
-    <div class="hidden md:flex w-full bg-blue-300 text-white font-semibold text-sm" style="background-color: #38bdf8">
-      <div class="mx-auto flex space-x-8 py-6">
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:underline">
-            International Trips <i class="ri-arrow-down-s-line"></i>
-          </button>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:underline">
-            Indian Trips <i class="ri-arrow-down-s-line"></i>
-          </button>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:underline">
-            School Trips <i class="ri-arrow-down-s-line"></i>
-          </button>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:underline">
-            Inschool Camps <i class="ri-arrow-down-s-line"></i>
-          </button>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:underline">
-            Corporates Trips <i class="ri-arrow-down-s-line"></i>
-          </button>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:underline">
-            Group Tours <i class="ri-arrow-down-s-line"></i>
-          </button>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:underline">
-            Educational Trips <i class="ri-arrow-down-s-line"></i>
-          </button>
-        </div>
-        <div class="relative group">
-          <button class="flex items-center gap-1 hover:underline">
-            Weekend Trips <i class="ri-arrow-down-s-line"></i>
-          </button>
+      <div
+        class="hidden md:flex w-full bg-blue-300 text-white font-semibold text-sm"
+        style="background-color: #38bdf8"
+      >
+        <div class="mx-auto flex space-x-8 py-6">
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              International Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Indian Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              School Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Inschool Camps <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Corporates Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Group Tours <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Educational Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
+          <div class="relative group">
+            <button class="flex items-center gap-1 hover:underline">
+              Weekend Trips <i class="ri-arrow-down-s-line"></i>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
   <!-- Mobile Sidebar/Drawer -->
   <div id="sidebar"
@@ -236,2562 +177,343 @@
       </div>
     </div>
   </div>
-
-  <!-- HERO SWIPER -->
-  <section class="relative w-full">
-    <div class="swiper hero-swiper w-full h-[420px] md:h-[540px] lg:h-[650px]">
-      <div class="swiper-wrapper">
-        <!-- Slide 1 -->
-        <div class="swiper-slide">
-          <div class="relative w-full h-[420px] md:h-[540px] lg:h-[650px]">
-            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80"
-              alt="Europe Tour Packages" class="w-full h-full object-cover select-none" draggable="false" />
-            <!-- Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10"></div>
-            <!-- Content -->
-            <div class="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:px-16 lg:px-24 max-w-2xl">
-              <h2
-                class="text-white text-2xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-4 leading-tight drop-shadow-lg">
-                Europe Tour Packages
-              </h2>
-              <div class="text-gray-100 text-base md:text-xl font-medium mb-5 drop-shadow">
-                Europe: The Land Of Endless Discoveries – Upto 30% Off
-              </div>
-              <div class="flex items-center gap-2 mb-5">
-                <i class="ri-discount-percent-fill text-yellow-300 text-2xl"></i>
-                <span class="text-white text-lg">Starting Price:</span>
-                <span class="text-yellow-300 font-semibold text-xl ml-1">Rs. 1,44,990/- Per
-                  Person</span>
-              </div>
-              <button
-                class="bg-yellow-400 hover:bg-yellow-300 text-black rounded-full px-7 py-3 mt-2 font-semibold text-base shadow-lg transition"
-                onclick="openContactModal()">Request a Callback</button>
-            </div>
-          </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="swiper-slide">
-          <div class="relative w-full h-[420px] md:h-[540px] lg:h-[650px]">
-            <img src="https://images.wanderon.in/gallery/new/2025/05/23/1747988153003-paragliding-turkey.webp"
-              alt="Lake Retreats" class="w-full h-full object-cover select-none" draggable="false" />
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10"></div>
-            <div class="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:px-16 lg:px-24 max-w-2xl">
-              <h2
-                class="text-white text-2xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-4 leading-tight drop-shadow-lg">
-                Lake Retreats
-              </h2>
-              <div class="text-gray-100 text-base md:text-xl font-medium mb-5 drop-shadow">
-                Serene Views & Luxury – Up to 20% Off
-              </div>
-              <div class="flex items-center gap-2 mb-5">
-                <i class="ri-discount-percent-fill text-yellow-300 text-2xl"></i>
-                <span class="text-white text-lg">Starting Price:</span>
-                <span class="text-yellow-300 font-semibold text-xl ml-1">Rs. 49,990/- Per Person</span>
-              </div>
-              <button
-                class="bg-yellow-400 hover:bg-yellow-300 text-black rounded-full px-7 py-3 mt-2 font-semibold text-base shadow-lg transition"
-                onclick="openContactModal()">Request a Callback</button>
-            </div>
-          </div>
-        </div>
-        <!-- Slide 3 -->
-        <div class="swiper-slide">
-          <div class="relative w-full h-[420px] md:h-[540px] lg:h-[650px]">
-            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80"
-              alt="Swiss Alps Adventure" class="w-full h-full object-cover select-none" draggable="false" />
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10"></div>
-            <div class="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:px-16 lg:px-24 max-w-2xl">
-              <h2
-                class="text-white text-2xl sm:text-4xl md:text-5xl font-bold mb-2 md:mb-4 leading-tight drop-shadow-lg">
-                Swiss Alps Adventure
-              </h2>
-              <div class="text-gray-100 text-base md:text-xl font-medium mb-5 drop-shadow">
-                Breathtaking Alps Journey – Save Big
-              </div>
-              <div class="flex items-center gap-2 mb-5">
-                <i class="ri-discount-percent-fill text-yellow-300 text-2xl"></i>
-                <span class="text-white text-lg">Starting Price:</span>
-                <span class="text-yellow-300 font-semibold text-xl ml-1">Rs. 2,10,000/- Per
-                  Person</span>
-              </div>
-              <button
-                class="bg-yellow-400 hover:bg-yellow-300 text-black rounded-full px-7 py-3 mt-2 font-semibold text-base shadow-lg transition"
-                onclick="openContactModal()">Request a Callback</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Navigation Arrows -->
-      <button
-        class="hero-swiper-prev absolute z-10 top-1/2 left-4 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 md:p-3 transition">
-        <i class="ri-arrow-left-s-line text-3xl"></i>
-      </button>
-      <button
-        class="hero-swiper-next absolute z-10 top-1/2 right-4 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white rounded-full p-2 md:p-3 transition">
-        <i class="ri-arrow-right-s-line text-3xl"></i>
-      </button>
-      <!-- Swiper Pagination Dots -->
-      <div class="swiper-pagination !bottom-5"></div>
+  <section class="relative h-64 bg-primary flex items-center justify-center">
+    <div class="text-center text-white px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">About Wanderlust</h1>
+      <p class="text-xl">Creating extraordinary travel experiences since 2020</p>
     </div>
   </section>
 
-  <!-- MODAL -->
-  <div id="contact-modal"
-    class="fixed z-50 top-0 left-0 w-full h-full bg-black/40 flex items-center justify-center hidden">
-    <div class="bg-white rounded-2xl max-w-sm w-full text-center p-8 shadow-xl">
-      <h3 class="font-bold text-lg mb-2">Request a Callback</h3>
-      <div class="mb-4 text-gray-700">This is a demo modal.<br>Add your form here.</div>
-      <button onclick="closeContactModal()"
-        class="bg-yellow-400 px-7 py-2 rounded-full font-semibold mt-2">Close</button>
+  <!-- Our Story -->
+  <section class="py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8">Our Story</h2>
+      <div class="text-lg text-muted-foreground space-y-6">
+        <p>
+          Founded in 2015 by a group of passionate travelers, Wanderlust was
+          born from the belief that travel should be more than just visiting
+          places – it should be about creating life-changing experiences and
+          meaningful connections.
+        </p>
+        <p>
+          What started as a small team of travel enthusiasts has grown into
+          a trusted partner for thousands of adventurers worldwide. We
+          specialize in crafting unique journeys that go beyond the typical
+          tourist experience, focusing on authentic cultural immersion and
+          sustainable tourism practices.
+        </p>
+        <p>
+          Today, we continue to push the boundaries of what's possible in
+          travel, always staying true to our core mission: making the world
+          more accessible, one adventure at a time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-muted/30">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="ri-group-line text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-3xl font-bold mb-2">10,000+</h3>
+          <p class="text-muted-foreground">Happy Travelers</p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="ri-earth-fill text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-3xl font-bold mb-2">50+</h3>
+          <p class="text-muted-foreground">Destinations</p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="ri-award-fill text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-3xl font-bold mb-2">25+</h3>
+          <p class="text-muted-foreground">Awards Won</p>
+        </div>
+        <div class="text-center">
+          <div class="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="ri-time-line text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-3xl font-bold mb-2">10+</h3>
+          <p class="text-muted-foreground">Years Experience</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Values -->
+  <section class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Our Values</h2>
+        <p class="text-xl text-muted-foreground">
+          The principles that guide everything we do
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-xl shadow text-center p-8">
+          <div class="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="ri-heart-3-fill text-3xl text-primary"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Passion for Travel</h3>
+          <p class="text-base text-muted-foreground">
+            We believe travel transforms lives and connects cultures
+          </p>
+        </div>
+        <div class="bg-white rounded-xl shadow text-center p-8">
+          <div class="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="ri-group-fill text-3xl text-primary"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Customer First</h3>
+          <p class="text-base text-muted-foreground">
+            Every decision is made with our travelers' best interests in mind
+          </p>
+        </div>
+        <div class="bg-white rounded-xl shadow text-center p-8">
+          <div class="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="ri-earth-fill text-3xl text-primary"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Sustainable Tourism</h3>
+          <p class="text-base text-muted-foreground">
+            We promote responsible travel that benefits local communities
+          </p>
+        </div>
+        <div class="bg-white rounded-xl shadow text-center p-8">
+          <div class="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <i class="ri-award-fill text-3xl text-primary"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Excellence</h3>
+          <p class="text-base text-muted-foreground">
+            We strive for perfection in every aspect of your journey
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 bg-muted/30">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">Meet Our Team</h2>
+        <p class="text-xl text-muted-foreground">
+          The passionate people behind your perfect journey
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white rounded-xl shadow text-center overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=300&q=80"
+            alt="Sarah Johnson" class="w-full h-64 object-cover"/>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Sarah Johnson</h3>
+            <p class="text-primary font-medium mb-2">Founder & CEO</p>
+            <p class="text-sm text-muted-foreground">Passionate traveler with 15+ years in the tourism industry</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow text-center overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80"
+            alt="Michael Chen" class="w-full h-64 object-cover"/>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Michael Chen</h3>
+            <p class="text-primary font-medium mb-2">Head of Operations</p>
+            <p class="text-sm text-muted-foreground">Expert in logistics and creating seamless travel experiences</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow text-center overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80"
+            alt="Emma Williams" class="w-full h-64 object-cover"/>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">Emma Williams</h3>
+            <p class="text-primary font-medium mb-2">Travel Specialist</p>
+            <p class="text-sm text-muted-foreground">Specializes in adventure and cultural immersion trips</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-xl shadow text-center overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80"
+            alt="David Rodriguez" class="w-full h-64 object-cover"/>
+          <div class="p-6">
+            <h3 class="text-xl font-bold">David Rodriguez</h3>
+            <p class="text-primary font-medium mb-2">Guide Coordinator</p>
+            <p class="text-sm text-muted-foreground">Connects travelers with the best local guides worldwide</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Statement -->
+  <section class="py-20 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-8">Our Mission</h2>
+      <div class="bg-primary text-primary-foreground rounded-xl shadow p-8 text-xl leading-relaxed">
+        "To inspire and enable authentic travel experiences that create
+        lasting memories, foster cultural understanding, and contribute
+        positively to the communities we visit. We believe that travel has
+        the power to transform both travelers and destinations, creating a
+        more connected and understanding world."
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-20 bg-muted/30">
+    <div class="max-w-4xl mx-auto px-4 text-center p-10 rounded-xl bg-primary">
+      <h2 class="text-4xl text-white font-bold mb-4">
+        Ready to Start Your Journey?
+      </h2>
+      <p class="text-xl text-white text-muted-foreground mb-8">
+        Let us help you create memories that will last a lifetime
+      </p>
+      <div class="space-x-4">
+        <button onclick="openModal()" class="bg-white text-primary font-semibold px-8 py-3 rounded-full text-lg shadow hover:bg-slate-100 transition">Contact Us</button>
+        <a href="/packages" class="bg-transparent border-2 border-white text-white font-semibold px-8 py-3 rounded-full text-lg hover:bg-white hover:text-primary transition">View Packages</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Modal -->
+  <div id="contactModal" class="fixed inset-0 z-50 bg-black bg-opacity-40 flex items-center justify-center hidden">
+    <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md relative">
+      <button onclick="closeModal()" class="absolute right-4 top-4 text-gray-400 hover:text-primary text-2xl">
+        &times;
+      </button>
+      <h3 class="font-bold text-2xl mb-4 text-primary">Contact Us</h3>
+      <form onsubmit="event.preventDefault();document.getElementById('contactFormMsg').classList.remove('hidden');">
+        <div class="mb-4">
+          <label class="block mb-1 text-sm font-medium text-gray-700">Name</label>
+          <input type="text" required class="w-full border border-gray-300 rounded px-3 py-2" placeholder="Your Name">
+        </div>
+        <div class="mb-4">
+          <label class="block mb-1 text-sm font-medium text-gray-700">Email</label>
+          <input type="email" required class="w-full border border-gray-300 rounded px-3 py-2" placeholder="you@email.com">
+        </div>
+        <div class="mb-6">
+          <label class="block mb-1 text-sm font-medium text-gray-700">Message</label>
+          <textarea required class="w-full border border-gray-300 rounded px-3 py-2" rows="3" placeholder="How can we help you?"></textarea>
+        </div>
+        <button type="submit" class="bg-primary text-white font-bold px-6 py-2 rounded-full w-full">Send Message</button>
+        <div id="contactFormMsg" class="hidden text-green-600 mt-4 text-center">Thank you! We'll get back to you soon.</div>
+      </form>
     </div>
   </div>
-
-  <!-- ABOUT SECTION -->
-  <section class="py-10 px-4 sm:px-8 md:px-16 lg:px-24">
-    <div class="max-w-[1400px] mx-auto mt-8 mb-6 rounded-xl border border-[#f3f6fd] bg-white shadow-sm p-7">
-      <div class="flex justify-between items-start">
-        <h2 class="text-[22px] font-bold text-gray-900 mb-1">
-          About Europe Tour Packages
-        </h2>
-        <button id="readLessBtn"
-          class="hidden ml-4 bg-[#27478b] hover:bg-[#183364] text-white text-sm px-5 py-1.5 rounded transition font-semibold"
-          type="button">
-          Read Less
-        </button>
-      </div>
-      <div id="aboutCollapsed" class="flex flex-col sm:flex-row justify-between items-start mt-2">
-        <p class="text-[#6c6c6c] text-base font-normal leading-[1.7] mb-0 flex-1">
-          Europe is a land of mesmerizing landscapes, vibrant cultures, and historic cities. With our curated
-          Europe tour packages, you’ll embark on an unforgettable journey across iconic destinations, from the
-          romantic streets of Paris to the breathtaking Alps of Switzerland.
-        </p>
-        <button id="readMoreBtn"
-          class="ml-0 sm:ml-3 mt-2 sm:mt-0 text-[#183364] text-[16px] font-semibold hover:underline cursor-pointer self-end"
-          style="min-width:110px" type="button" tabindex="0">
-          Read More...
-        </button>
-      </div>
-      <div id="aboutExpanded" class="hidden mt-4">
-        <p class="text-[#6c6c6c] text-base font-normal leading-[1.7] whitespace-pre-line">
-          Europe is a land of mesmerizing landscapes, vibrant cultures, and historic cities. With our curated
-          Europe tour packages, you’ll embark on an unforgettable journey across iconic destinations, from the
-          romantic streets of Paris to the breathtaking Alps of Switzerland.
-
-          Explore handpicked itineraries that blend must-see landmarks with authentic local experiences.
-          Whether you crave adventure in the Norwegian fjords, culinary delights in Italy, or historic charm
-          in Prague, our tours ensure comfort, safety, and a touch of magic in every step.
-          <br><br>
-          Our expert team provides visa support, seamless transfers, and knowledgeable guides to make your
-          trip hassle-free. Join us and create lifelong memories as you discover the wonders of Europe with
-          fellow travelers and new friends!
-        </p>
-      </div>
-    </div>
-  </section>
-  <section class="bg-white pt-8 pb-12">
-    <div class="max-w-[1400px] mx-auto px-4">
-      <h2 class="text-3xl md:text-[2rem] font-bold text-[#34586a] mb-1">
-        Best-Selling Community Trips
-      </h2>
-      <p class="text-lg text-gray-500 mb-6">
-        Discover Europe with WanderOn: Epic Journeys, New Bonds, Unforgettable Memories!
-      </p>
-      <div class="relative">
-        <button
-          class="trips-swiper-prev hidden md:flex absolute left-[-35px] top-1/2 -translate-y-1/2 z-10 w-[54px] h-[54px] bg-white rounded-full items-center justify-center shadow border border-gray-200 hover:bg-blue-100 transition-all"
-          aria-label="Previous" style="box-shadow: 0 2px 18px rgba(32,60,132,0.12); padding:0; line-height:1;">
-          <i class="fa-solid fa-arrow-left text-[#87bdd8] text-3xl"></i>
-        </button>
-        <button
-          class="trips-swiper-next hidden md:flex absolute right-[-35px] top-1/2 -translate-y-1/2 z-10 w-[54px] h-[54px] bg-white rounded-full items-center justify-center shadow border border-gray-200 hover:bg-blue-100 transition-all"
-          aria-label="Next" style="box-shadow: 0 2px 18px rgba(32,60,132,0.12); padding:0; line-height:1;">
-          <i class="fa-solid fa-arrow-right text-[#87bdd8] text-3xl"></i>
-        </button>
-        <div class="swiper trips-swiper py-4">
-          <div class="swiper-wrapper">
-            <!-- Slide 1 -->
-            <div class="swiper-slide">
-              <a href="/packages/1">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img src="https://images.wanderon.in/gallery/new/2024/12/13/backpacking-trip-to-europe-10n-11d.avif"
-                    alt="11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                      <span class="font-bold">₹1,69,990/-</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      3N Paris · 3N Amsterdam· 2N Prague
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">10N/11D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Paris Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">9 Aug, 27 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 2 -->
-            <div class="swiper-slide">
-              <a href="/packages/2">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2025/06/10/1749541707344-spain-community-trip-9n-10ds-new.webp"
-                    alt="10 Days Spain Community Trip | La Tomatina Special" class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,09,990/-</span>
-                      <span class="font-bold">₹1,49,999/-</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-green-300 text-gray-800 shadow">Popular</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      10 Days Spain Community Trip | La Tomatina Special
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      Barcelona · Ibiza · Valencia · Bunol
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">9N/10D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Barcelona - Madrid</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">21 Aug</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 3 -->
-            <div class="swiper-slide">
-              <a href="/packages/3">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2025/06/09/1749455995718-oktoberfest-trip-package-10n-11d.webp"
-                    alt="Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                      <span class="font-bold">₹1,89,990/-</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      Amsterdam · Paris · Eiffel Tower
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">10N/11D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Amsterdam Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">16 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 4 -->
-            <div class="swiper-slide">
-              <a href="/packages/4">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img src="https://images.wanderon.in/gallery/new/2024/12/13/europe-community-trip-7n-8d.avif"
-                    alt="8 Days European Trails Community Trip - Netherlands, Germany, Czechia"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,09,990/-</span>
-                      <span class="font-bold">₹1,44,990/-</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      8 Days European Trails Community Trip - Netherlands, Germany, Czechia
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      3N Amsterdam · 2N Berlin · 2N Prague
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">7N/8D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Amsterdam Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">12 Aug, 30 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 5 (repeat - copy/paste above as needed) -->
-            <div class="swiper-slide">
-              <a href="/packages/5">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img src="https://images.wanderon.in/gallery/new/2024/12/13/backpacking-trip-to-europe-10n-11d.avif"
-                    alt="11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                      <span class="font-bold">₹1,69,990/-</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      3N Paris · 3N Amsterdam· 2N Prague
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">10N/11D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Paris Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">9 Aug, 27 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 6 -->
-            <div class="swiper-slide">
-              <a href="/packages/6">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2025/06/10/1749541707344-spain-community-trip-9n-10ds-new.webp"
-                    alt="10 Days Spain Community Trip | La Tomatina Special" class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,09,990/-</span>
-                      <span class="font-bold">₹1,49,999/-</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-green-300 text-gray-800 shadow">Popular</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      10 Days Spain Community Trip | La Tomatina Special
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      Barcelona · Ibiza · Valencia · Bunol
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">9N/10D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Barcelona - Madrid</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">21 Aug</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 7 -->
-            <div class="swiper-slide">
-              <a href="/packages/7">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2025/06/09/1749455995718-oktoberfest-trip-package-10n-11d.webp"
-                    alt="Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                      <span class="font-bold">₹1,89,990/-</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      Amsterdam · Paris · Eiffel Tower
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">10N/11D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Amsterdam Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">16 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 8 -->
-            <div class="swiper-slide">
-              <a href="/packages/8">
-                <div class="relative border-0 h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img src="https://images.wanderon.in/gallery/new/2024/12/13/europe-community-trip-7n-8d.avif"
-                    alt="8 Days European Trails Community Trip - Netherlands, Germany, Czechia"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,09,990/-</span>
-                      <span class="font-bold">₹1,44,990/-</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      8 Days European Trails Community Trip - Netherlands, Germany, Czechia
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      3N Amsterdam · 2N Berlin · 2N Prague
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">7N/8D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Amsterdam Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">12 Aug, 30 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
+    <footer
+      class="bg-[#112123] pt-2 pb-0 mt-10 w-full border-t-4 border-[#20e0ff]"
+    >
+      <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-white">
+          <!-- Column 1: Logo + tagline -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">Wanderlust</h3>
+            <p class="text-gray-300 text-[15px]">
+              Creating unforgettable travel experiences since 2015.<br />
+              Your adventure starts here.
+            </p>
           </div>
-          <div class="swiper-pagination mt-30"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- COMMUNITY TRIPS SWIPER -->
-  <section class="bg-white pt-8 pb-12">
-    <div class="max-w-[1400px] mx-auto px-4">
-      <h2 class="text-3xl md:text-[2rem] font-bold text-[#34586a] mb-1">
-        Exclusive Europe Summer Deals 2025
-      </h2>
-      <p class="text-lg text-gray-500 mb-6">
-        Spend a perfect summer soaking in the scenic landscapes of Europe with our best deals on Europe Summer packages.
-        Combined with best experiences, outdoor activities, city tours and adventures, these trips are perfect for a
-        memorable summer vacation.
-
-
-      </p>
-      <div class="relative">
-        <button
-          class="trips-swiper-prev hidden md:flex absolute left-[-35px] top-1/2 -translate-y-1/2 z-10 w-[54px] h-[54px] bg-white rounded-full items-center justify-center shadow border border-gray-200 hover:bg-blue-100 transition-all"
-          aria-label="Previous" style="box-shadow: 0 2px 18px rgba(32,60,132,0.12); padding:0; line-height:1;">
-          <i class="fa-solid fa-arrow-left text-[#87bdd8] text-3xl"></i>
-        </button>
-        <button
-          class="trips-swiper-next hidden md:flex absolute right-[-35px] top-1/2 -translate-y-1/2 z-10 w-[54px] h-[54px] bg-white rounded-full items-center justify-center shadow border border-gray-200 hover:bg-blue-100 transition-all"
-          aria-label="Next" style="box-shadow: 0 2px 18px rgba(32,60,132,0.12); padding:0; line-height:1;">
-          <i class="fa-solid fa-arrow-right text-[#87bdd8] text-3xl"></i>
-        </button>
-        <div class="swiper trips-swiper py-4">
-          <div class="swiper-wrapper">
-            <!-- Slide 1 -->
-            <div class="swiper-slide">
-              <a href="/packages/1">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2024/12/13/summer-european-grandeur-tour-package-14n-15d-new.avif"
-                    alt="11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                      <span class="font-bold">₹1,69,990</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      3N Paris · 3N Amsterdam· 2N Prague
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">10N/11D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Paris Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">9 Aug, 27 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 2 -->
-            <div class="swiper-slide">
-              <a href="/packages/2">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2024/12/13/summer-splendid-europe-tour-package-12n-13d.avif"
-                    alt="10 Days Spain Community Trip | La Tomatina Special" class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,09,990/-</span>
-                      <span class="font-bold">₹1,49,999</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-green-300 text-gray-800 shadow">Popular</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      10 Days Spain Community Trip | La Tomatina Special
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      Barcelona · Ibiza · Valencia · Bunol
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">9N/10D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Barcelona - Madrid</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">21 Aug</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 3 -->
-            <div class="swiper-slide">
-              <a href="/packages/3">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2024/12/13/swiss-paris-europe-trip-package-7n-8d.avif"
-                    alt="Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                      <span class="font-bold">₹1,89,990</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      Amsterdam · Paris · Eiffel Tower
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">10N/11D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Amsterdam Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">16 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 4 -->
-            <div class="swiper-slide">
-              <a href="/packages/4">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2024/12/16/highlights-of-europe-summer-tour-package-new.avif"
-                    alt="8 Days European Trails Community Trip - Netherlands, Germany, Czechia"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,09,990/-</span>
-                      <span class="font-bold">₹1,44,990</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      8 Days European Trails Community Trip - Netherlands, Germany, Czechia
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      3N Amsterdam · 2N Berlin · 2N Prague
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">7N/8D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Amsterdam Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">12 Aug, 30 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 5 -->
-            <div class="swiper-slide">
-              <a href="/packages/5">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2024/12/13/summer-european-grandeur-tour-package-14n-15d-new.avif"
-                    alt="11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                      <span class="font-bold">₹1,69,990</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      3N Paris · 3N Amsterdam· 2N Prague
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">10N/11D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Paris Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">9 Aug, 27 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 6 -->
-            <div class="swiper-slide">
-              <a href="/packages/6">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2024/12/13/summer-splendid-europe-tour-package-12n-13d.avif"
-                    alt="10 Days Spain Community Trip | La Tomatina Special" class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,09,990/-</span>
-                      <span class="font-bold">₹1,49,999</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-green-300 text-gray-800 shadow">Popular</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      10 Days Spain Community Trip | La Tomatina Special
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      Barcelona · Ibiza · Valencia · Bunol
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">9N/10D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Barcelona - Madrid</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">21 Aug</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 7 -->
-            <div class="swiper-slide">
-              <a href="/packages/7">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2024/12/13/swiss-paris-europe-trip-package-7n-8d.avif"
-                    alt="Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                      <span class="font-bold">₹1,89,990</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      Amsterdam · Paris · Eiffel Tower
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">10N/11D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Amsterdam Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">16 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <!-- Slide 8 -->
-            <div class="swiper-slide">
-              <a href="/packages/8">
-                <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                  <img
-                    src="https://images.wanderon.in/gallery/new/2024/12/16/highlights-of-europe-summer-tour-package-new.avif"
-                    alt="8 Days European Trails Community Trip - Netherlands, Germany, Czechia"
-                    class="w-full h-full object-cover" />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                  <div class="absolute top-5 left-5 z-20">
-                    <div
-                      class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                      <span class="line-through text-gray-600 text-sm">₹2,09,990/-</span>
-                      <span class="font-bold">₹1,44,990</span>
-                      <span class="text-xs">onwards</span>
-                    </div>
-                  </div>
-                  <div class="absolute left-5 top-[62px] z-30">
-                    <span
-                      class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                  </div>
-                  <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                    <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                      8 Days European Trails Community Trip - Netherlands, Germany, Czechia
-                    </div>
-                    <div
-                      class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                      3N Amsterdam · 2N Berlin · 2N Prague
-                    </div>
-                    <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">7N/8D</span>
-                      </span>
-                      <span class="flex items-center font-bold">
-                        <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">Amsterdam Airport - Prague</span>
-                      </span>
-                    </div>
-                    <div class="flex items-center text-xs mt-1">
-                      <span class="flex items-center font-bold mr-2">
-                        <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                        <span class="text-white">12 Aug, 30 Sep</span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
+          <!-- Column 2: Quick Links -->
+          <div>
+            <h4 class="font-semibold mb-4 text-lg">Quick Links</h4>
+            <ul class="space-y-2 text-gray-300 text-[15px]">
+              <li>
+                <a href="/" class="hover:text-[#20e0ff] transition">Home</a>
+              </li>
+              <li>
+                <a href="packages.html" class="hover:text-[#20e0ff] transition"
+                  >Packages</a
+                >
+              </li>
+              <li>
+                <a href="about.html" class="hover:text-[#20e0ff] transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-[#20e0ff] transition"
+                  >Contact</a
+                >
+                <!-- If you have a modal, trigger with JS -->
+              </li>
+              <li>
+                <a
+                  href="privacy-policy.html"
+                  class="hover:text-[#20e0ff] transition"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="desclaimer.html" class="hover:text-[#20e0ff] transition"
+                  >Desclaimer</a
+                >
+              </li>
+              <li>
+                <a
+                  href="terms-and-condition.html"
+                  class="hover:text-[#20e0ff] transition"
+                  >Terms & Condition</a
+                >
+              </li>
+            </ul>
           </div>
-
-          <div class="swiper-pagination mt-30"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="bg-white pt-8 pb-12">
-    <div class="max-w-[1400px] mx-auto px-4">
-      <h2 class="text-3xl md:text-[2rem] font-bold text-[#34586a] mb-1">
-        Affordable Europe Packages
-      </h2>
-      <p class="text-lg text-gray-500 mb-6">
-        Get the best deals and enjoy a hassle-free trip to Europe without breaking the bank.
-      </p>
-      <div class="relative">
-        <!-- Swiper arrows -->
-        <button
-          class="affordable-swiper-prev hidden md:flex absolute left-[-35px] top-1/2 -translate-y-1/2 z-10 w-[54px] h-[54px] bg-white rounded-full items-center justify-center shadow border border-gray-200 hover:bg-blue-100 transition-all"
-          aria-label="Previous">
-          <i class="fa-solid fa-arrow-left text-[#87bdd8] text-3xl"></i>
-        </button>
-        <button
-          class="affordable-swiper-next hidden md:flex absolute right-[-35px] top-1/2 -translate-y-1/2 z-10 w-[54px] h-[54px] bg-white rounded-full items-center justify-center shadow border border-gray-200 hover:bg-blue-100 transition-all"
-          aria-label="Next">
-          <i class="fa-solid fa-arrow-right text-[#87bdd8] text-3xl"></i>
-        </button>
-        <!-- Swiper container -->
-        <div class="swiper affordable-swiper py-4">
-          <div class="swiper-wrapper">
-            <!-- Card 1 -->
-            <div class="swiper-slide">
-              <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                <img src="https://images.wanderon.in/gallery/new/2024/12/13/europe-community-trip-7n-8d.avif"
-                  alt="11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia"
-                  class="w-full h-full object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                <div class="absolute top-5 left-5 z-20">
-                  <div
-                    class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                    <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                    <span class="font-bold">₹1,69,990</span>
-                    <span class="text-xs">onwards</span>
-                  </div>
-                </div>
-                <div class="absolute left-5 top-[62px] z-30">
-                  <span
-                    class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                </div>
-                <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                  <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                    11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia
-                  </div>
-                  <div class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                    3N Paris · 3N Amsterdam· 2N Prague
-                  </div>
-                  <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                    <span class="flex items-center font-bold">
-                      <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">10N/11D</span>
-                    </span>
-                    <span class="flex items-center font-bold">
-                      <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">Paris Airport - Prague</span>
-                    </span>
-                  </div>
-                  <div class="flex items-center text-xs mt-1">
-                    <span class="flex items-center font-bold mr-2">
-                      <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">9 Aug, 27 Sep</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Empty Card 2 -->
-            <div class="swiper-slide">
-              <!-- <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-gray-100 flex flex-col items-center justify-center">
-            </div> -->
-            </div>
-            <!-- Empty Card 3 -->
-            <div class="swiper-slide">
-              <!-- <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-gray-100 flex flex-col items-center justify-center">
-              <span class="text-gray-400 text-lg font-semibold">Coming Soon</span>
-            </div> -->
-            </div>
-            <!-- Empty Card 4 -->
-            <div class="swiper-slide">
-              <!-- <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-gray-100 flex flex-col items-center justify-center">
-              <span class="text-gray-400 text-lg font-semibold">Coming Soon</span>
-            </div> -->
-            </div>
+          <!-- Column 3: Destinations -->
+          <div>
+            <h4 class="font-semibold mb-4 text-lg">Destinations</h4>
+            <ul class="space-y-2 text-gray-300 text-[15px]">
+              <li>Bali, Indonesia</li>
+              <li>Swiss Alps</li>
+              <li>African Safari</li>
+              <li>Patagonia</li>
+            </ul>
           </div>
-          <div class="swiper-pagination mt-6"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="bg-white pt-8 pb-12">
-    <div class="max-w-[1400px] mx-auto px-4">
-      <h2 class="text-3xl md:text-[2rem] font-bold text-[#34586a] mb-1">
-        Europe with UK Packages
-      </h2>
-      <p class="text-lg text-gray-500 mb-6">
-        Experience the best of Europe and the UK in one journey – discover iconic landmarks, vibrant cities, and
-        unforgettable cultures in a single adventure.
-      </p>
-      <div class="relative">
-        <!-- Swiper arrows -->
-        <button
-          class="europeuk-swiper-prev hidden md:flex absolute left-[-35px] top-1/2 -translate-y-1/2 z-10 w-[54px] h-[54px] bg-white rounded-full items-center justify-center shadow border border-gray-200 hover:bg-blue-100 transition-all"
-          aria-label="Previous">
-          <i class="fa-solid fa-arrow-left text-[#87bdd8] text-3xl"></i>
-        </button>
-        <button
-          class="europeuk-swiper-next hidden md:flex absolute right-[-35px] top-1/2 -translate-y-1/2 z-10 w-[54px] h-[54px] bg-white rounded-full items-center justify-center shadow border border-gray-200 hover:bg-blue-100 transition-all"
-          aria-label="Next">
-          <i class="fa-solid fa-arrow-right text-[#87bdd8] text-3xl"></i>
-        </button>
-        <!-- Swiper container -->
-        <div class="swiper europeuk-swiper py-4">
-          <div class="swiper-wrapper">
-            <!-- Card 1 -->
-            <div class="swiper-slide">
-              <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                <img
-                  src="https://images.wanderon.in/gallery/new/2024/12/13/amazing-summer-europe-trip-package-12n-13d.avif"
-                  alt="11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia"
-                  class="w-full h-full object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                <div class="absolute top-5 left-5 z-20">
-                  <div
-                    class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                    <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                    <span class="font-bold">₹1,69,990</span>
-                    <span class="text-xs">onwards</span>
-                  </div>
-                </div>
-                <div class="absolute left-5 top-[62px] z-30">
-                  <span
-                    class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                </div>
-                <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                  <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                    11 Days European Pathways Community Trip - France, Netherlands, Germany, Czechia
-                  </div>
-                  <div class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                    3N Paris · 3N Amsterdam· 2N Prague
-                  </div>
-                  <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                    <span class="flex items-center font-bold">
-                      <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">10N/11D</span>
-                    </span>
-                    <span class="flex items-center font-bold">
-                      <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">Paris Airport - Prague</span>
-                    </span>
-                  </div>
-                  <div class="flex items-center text-xs mt-1">
-                    <span class="flex items-center font-bold mr-2">
-                      <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">9 Aug, 27 Sep</span>
-                    </span>
-                  </div>
-                </div>
+          <!-- Column 4: Contact Info -->
+          <div>
+            <h4 class="font-semibold mb-4 text-lg">Contact Info</h4>
+            <div class="space-y-2 text-gray-300 text-[15px]">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-phone w-4 h-4"></i>
+                <span>+1 (555) 123-4567</span>
               </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="swiper-slide">
-              <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                <img
-                  src="https://images.wanderon.in/gallery/new/2024/12/13/summer-european-grandeur-tour-package-14n-15d-new.avif"
-                  alt="10 Days Spain Community Trip | La Tomatina Special" class="w-full h-full object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                <div class="absolute top-5 left-5 z-20">
-                  <div
-                    class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                    <span class="line-through text-gray-600 text-sm">₹2,09,990/-</span>
-                    <span class="font-bold">₹1,49,999</span>
-                    <span class="text-xs">onwards</span>
-                  </div>
-                </div>
-                <div class="absolute left-5 top-[62px] z-30">
-                  <span class="text-xs font-bold px-3 py-1 rounded-md bg-green-300 text-gray-800 shadow">Popular</span>
-                </div>
-                <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                  <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                    10 Days Spain Community Trip | La Tomatina Special
-                  </div>
-                  <div class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                    Barcelona · Ibiza · Valencia · Bunol
-                  </div>
-                  <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                    <span class="flex items-center font-bold">
-                      <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">9N/10D</span>
-                    </span>
-                    <span class="flex items-center font-bold">
-                      <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">Barcelona - Madrid</span>
-                    </span>
-                  </div>
-                  <div class="flex items-center text-xs mt-1">
-                    <span class="flex items-center font-bold mr-2">
-                      <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">21 Aug</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="swiper-slide">
-              <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-black/80">
-                <img
-                  src="https://images.wanderon.in/gallery/new/2024/12/13/charming-europe-tour-package-9n-10d-new.avif"
-                  alt="Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip"
-                  class="w-full h-full object-cover" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                <div class="absolute top-5 left-5 z-20">
-                  <div
-                    class="flex items-center gap-1 px-3 py-1 rounded-full bg-yellow-300/95 text-gray-900 font-semibold text-[15px] shadow min-w-[175px] justify-center">
-                    <span class="line-through text-gray-600 text-sm">₹2,29,990/-</span>
-                    <span class="font-bold">₹1,89,990</span>
-                    <span class="text-xs">onwards</span>
-                  </div>
-                </div>
-                <div class="absolute left-5 top-[62px] z-30">
-                  <span
-                    class="text-xs font-bold px-3 py-1 rounded-md bg-yellow-400 text-gray-800 shadow">Recommended</span>
-                </div>
-                <div class="absolute bottom-0 left-0 w-full px-5 pb-5 pt-3 z-10 text-white">
-                  <div class="font-bold text-[1.08rem] leading-tight mb-2 min-h-[48px]">
-                    Live Europe’s Best Moments: 11-Day Oktoberfest Community Trip
-                  </div>
-                  <div class="text-xs bg-white/15 rounded px-2 py-1 mb-2 max-w-full overflow-x-auto whitespace-nowrap">
-                    Amsterdam · Paris · Eiffel Tower
-                  </div>
-                  <div class="flex items-center justify-between text-xs text-white/90 gap-6 mb-1">
-                    <span class="flex items-center font-bold">
-                      <i class="fa-solid fa-clock text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">10N/11D</span>
-                    </span>
-                    <span class="flex items-center font-bold">
-                      <i class="fa-solid fa-location-dot text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">Amsterdam Airport - Prague</span>
-                    </span>
-                  </div>
-                  <div class="flex items-center text-xs mt-1">
-                    <span class="flex items-center font-bold mr-2">
-                      <i class="fa-solid fa-calendar-days text-[#00AFD1] text-base mr-2"></i>
-                      <span class="text-white">16 Sep</span>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Empty Card 4 -->
-            <div class="swiper-slide">
-              <!-- <div class="relative h-[470px] rounded-[15px] overflow-hidden group shadow border bg-gray-100 flex flex-col items-center justify-center">
-              <span class="text-gray-400 text-lg font-semibold">Coming Soon</span>
-            </div> -->
-            </div>
-          </div>
-          <div class="swiper-pagination mt-6"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- ACTIVITIES SWIPER -->
-  <section class="max-w-[1400px] mx-auto px-4 pt-10 pb-12">
-    <div class="mb-7">
-      <h2 class="text-[2rem] font-bold text-[#34586a] mb-2" style="letter-spacing:-0.5px">
-        Must-Do Activities for an Unforgettable Europe Experience
-      </h2>
-      <p class="text-gray-500 text-lg">
-        From skiing in the Alps to hiking ancient trails, Europe offers
-        diverse adventure activities in stunning settings. Explore
-        thrilling experiences across the continent.
-      </p>
-    </div>
-    <div class="relative">
-      <!-- Custom Left Arrow -->
-      <button
-        class="swiper-button-prev-activity swiper-button-activity absolute z-20 -left-6 top-1/2 -translate-y-1/2 hidden md:flex"
-        aria-label="Previous" type="button">
-        <!-- Chevron Left SVG -->
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-        </svg>
-      </button>
-      <!-- Custom Right Arrow -->
-      <button
-        class="swiper-button-next-activity swiper-button-activity absolute z-20 -right-6 top-1/2 -translate-y-1/2 hidden md:flex"
-        aria-label="Next" type="button">
-        <!-- Chevron Right SVG -->
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
-      </button>
-      <!-- Swiper Container -->
-      <div class="swiper activities-swiper py-2">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img src="https://images.wanderon.in/gallery/new/2025/05/23/1747988104917-rock-climbing-italy.webp"
-                  alt="Hiking" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">
-                    📍 Switzerland
-                  </span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">
-                    Hiking
-                  </span>
-                  <span class="block mt-1 font-normal">
-                    4 hours approx
-                  </span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Hiking in Switzerland offers breathtaking alpine vistas. Explore pristine trails through lush valleys
-                and towering peaks, a true outdoor paradise.
-              </div>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img
-                  src="https://images.wanderon.in/gallery/new/2025/05/23/1747988129877-white-water-rafting-montenegro.webp"
-                  alt="Snowboarding" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">
-                    📍 Austria
-                  </span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">
-                    Snowboarding
-                  </span>
-                  <span class="block mt-1 font-normal">
-                    2 hours approx
-                  </span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Snowboarding in Austria offers world-class slopes and apres-ski culture. Experience thrilling descents
-                amidst the stunning Alpine scenery and vibrant resorts.
-              </div>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=800&q=80"
-                  alt="Mountain Biking" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">
-                    📍 France
-                  </span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">
-                    Mountain Biking
-                  </span>
-                  <span class="block mt-1 font-normal">
-                    4 hours approx
-                  </span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Mountain biking in France offers diverse trails through picturesque landscapes, from the Alps to
-                Provence. Thrilling rides await amid stunning scenery.
-              </div>
-            </div>
-          </div>
-          <!-- Slide 4 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img
-                  src="https://images.wanderon.in/gallery/new/2025/05/23/1747988129877-white-water-rafting-montenegro.webp"
-                  alt="Snowboarding" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">
-                    📍 Austria
-                  </span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">
-                    Snowboarding
-                  </span>
-                  <span class="block mt-1 font-normal">
-                    2 hours approx
-                  </span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Snowboarding in Austria offers world-class slopes and apres-ski culture. Experience thrilling descents
-                amidst the stunning Alpine scenery and vibrant resorts.
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-envelope w-4 h-4"></i>
+                <span>info@wanderlust.com</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="max-w-[1400px] mx-auto px-4 pt-10 pb-12">
-    <div class="mb-7">
-      <h2 class="text-[2rem] font-bold text-[#34586a] mb-2" style="letter-spacing:-0.5px">
-        Must-Visit Places in Europe for a Dream Vacation
-      </h2>
-      <p class="text-gray-500 text-lg">
-        From skiing in the Alps to hiking ancient trails, Europe offers
-        diverse adventure activities in stunning settings. Explore
-        thrilling experiences across the continent.
-      </p>
-    </div>
-    <div class="relative">
-      <!-- Custom Left Arrow -->
-      <button
-        class="swiper-button-prev-activity swiper-button-activity absolute z-20 -left-6 top-1/2 -translate-y-1/2 hidden md:flex"
-        aria-label="Previous" type="button">
-        <!-- Chevron Left SVG -->
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="36" height="36">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-        </svg>
-      </button>
-      <!-- Custom Right Arrow -->
-      <button
-        class="swiper-button-next-activity swiper-button-activity absolute z-20 -right-6 top-1/2 -translate-y-1/2 hidden md:flex"
-        aria-label="Next" type="button">
-        <!-- Chevron Right SVG -->
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="36" height="36">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
-      </button>
-      <!-- Swiper Container -->
-      <div class="swiper activities-swiper py-2">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img src="https://images.wanderon.in/gallery/new/2025/05/23/1747988104917-rock-climbing-italy.webp"
-                  alt="Hiking" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">📍 Italy</span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">Hiking</span>
-                  <span class="block mt-1 font-normal">4 hours approx</span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Hiking in Switzerland offers breathtaking alpine vistas. Explore pristine trails through lush valleys
-                and towering peaks, a true outdoor paradise.
-              </div>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img src="https://images.wanderon.in/gallery/new/2025/05/23/1747987881375-france.webp"
-                  alt="Snowboarding" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">📍 France</span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">Snowboarding</span>
-                  <span class="block mt-1 font-normal">2 hours approx</span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Snowboarding in Austria offers world-class slopes and apres-ski culture. Experience thrilling descents
-                amidst the stunning Alpine scenery and vibrant resorts.
-              </div>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img src="https://images.wanderon.in/gallery/new/2025/05/23/1747987904182-prague.webp"
-                  alt="Mountain Biking" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">📍 Prague</span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">Mountain Biking</span>
-                  <span class="block mt-1 font-normal">4 hours approx</span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Mountain biking in France offers diverse trails through picturesque landscapes, from the Alps to
-                Provence. Thrilling rides await amid stunning scenery.
-              </div>
-            </div>
-          </div>
-          <!-- Slide 4 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img src="https://images.wanderon.in/gallery/new/2025/05/23/1747987927310-switzerland.webp"
-                  alt="Snowboarding" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">📍 Switzerland</span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">Snowboarding</span>
-                  <span class="block mt-1 font-normal">2 hours approx</span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Snowboarding in Austria offers world-class slopes and apres-ski culture. Experience thrilling descents
-                amidst the stunning Alpine scenery and vibrant resorts.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination mt-4"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="max-w-[1400px] mx-auto px-4 pt-10 pb-12">
-    <div class="mb-7">
-      <h2 class="text-[2rem] font-bold text-[#34586a] mb-2" style="letter-spacing:-0.5px">
-        Must-Visit Places in Europe for a Dream Vacation
-      </h2>
-      <p class="text-gray-500 text-lg">
-        From luxury boulevards to iconic markets, Europe is a paradise for shoppers. Explore these legendary streets and
-        bazaars for an unforgettable retail experience.
-      </p>
-    </div>
-    <div class="relative">
-      <!-- Custom Left Arrow -->
-      <button
-        class="swiper-button-prev-activity swiper-button-activity absolute z-20 -left-6 top-1/2 -translate-y-1/2 hidden md:flex"
-        aria-label="Previous" type="button">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="36" height="36">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-        </svg>
-      </button>
-      <!-- Custom Right Arrow -->
-      <button
-        class="swiper-button-next-activity swiper-button-activity absolute z-20 -right-6 top-1/2 -translate-y-1/2 hidden md:flex"
-        aria-label="Next" type="button">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="36" height="36">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
-      </button>
-      <!-- Swiper Container -->
-      <div class="swiper activities-swiper py-2">
-        <div class="swiper-wrapper">
-          <!-- Slide 1 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img
-                  src="https://images.wanderon.in/SEO%20Images%20Europe/Places%20To%20Shop%20In%20Europe/champs-elysees.jpg?updatedAt=1707812620009"
-                  alt="Champ Elysees" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">📍 Champ Elysees</span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">Hiking</span>
-                  <span class="block mt-1 font-normal">4 hours approx</span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Hiking in Switzerland offers breathtaking alpine vistas. Explore pristine trails through lush valleys
-                and towering peaks, a true outdoor paradise.
-              </div>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img
-                  src="https://images.wanderon.in/SEO%20Images%20Europe/Places%20To%20Shop%20In%20Europe/via-montenapoleone.jpg?updatedAt=1707812625629"
-                  alt="Via Montenapoleone" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">📍 Via Montenapoleone</span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">Snowboarding</span>
-                  <span class="block mt-1 font-normal">2 hours approx</span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Snowboarding in Austria offers world-class slopes and apres-ski culture. Experience thrilling descents
-                amidst the stunning Alpine scenery and vibrant resorts.
-              </div>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img
-                  src="https://images.wanderon.in/SEO%20Images%20Europe/Places%20To%20Shop%20In%20Europe/gran-v%C3%ADa.jpg?updatedAt=1707812625417"
-                  alt="Madrid" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">📍 Madrid</span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">Mountain Biking</span>
-                  <span class="block mt-1 font-normal">4 hours approx</span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Mountain biking in France offers diverse trails through picturesque landscapes, from the Alps to
-                Provence. Thrilling rides await amid stunning scenery.
-              </div>
-            </div>
-          </div>
-          <!-- Slide 4 -->
-          <div class="swiper-slide">
-            <div class="bg-white rounded-2xl overflow-hidden flex flex-col h-full min-h-[320px]">
-              <div class="relative h-[220px] w-full">
-                <img
-                  src="https://images.wanderon.in/SEO%20Images%20Europe/Places%20To%20Shop%20In%20Europe/grand-bazaar.jpg?updatedAt=1707812615889"
-                  alt="Grand Bazaar" class="w-full h-full object-cover rounded-t-2xl" draggable="false" />
-                <div
-                  class="absolute bottom-3 left-3 bg-black/80 rounded px-2 py-1 text-white text-xs font-semibold shadow min-w-[110px]">
-                  <span class="block text-xs font-medium mb-0.5">📍 Grand Bazaar</span>
-                  <span class="block bg-black font-bold rounded px-1 py-0.5 mt-0.5 text-sm">Snowboarding</span>
-                  <span class="block mt-1 font-normal">2 hours approx</span>
-                </div>
-              </div>
-              <div class="text-[15px] text-gray-600 text-[#49768f] px-4 py-4 font-normal leading-relaxed">
-                Snowboarding in Austria offers world-class slopes and apres-ski culture. Experience thrilling descents
-                amidst the stunning Alpine scenery and vibrant resorts.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-pagination mt-4"></div>
-      </div>
-    </div>
-  </section>
-  <section class="w-full py-16 bg-white">
-    <div class="max-w-4xl mx-auto">
-      <!-- Header -->
-      <div class="text-center mb-10">
-        <h2 class="text-3xl sm:text-4xl font-bold text-[#34586a] mb-2">
-          Frequently Asked Questions
-        </h2>
-        <div class="text-[#6bc3e3] text-lg font-medium flex flex-col items-center">
-          <span>Your right to Know!</span>
-          <span class="mt-1 h-[3px] w-32 bg-[#f4f37a] rounded-full"></span>
-        </div>
-      </div>
-      <!-- FAQ List -->
-      <div class="flex flex-col gap-4" id="faq-accordion">
-        <!-- FAQ 1 -->
-        <div class="bg-white border border-gray-300 rounded-md">
-          <button
-            class="w-full flex items-center justify-between px-5 py-4 cursor-pointer focus:outline-none transition hover:shadow-md"
-            aria-expanded="false" data-faq="0">
-            <span class="text-gray-700 text-base text-left">
-              <span class="font-medium mr-2">Q:</span>
-              When is the best time to visit Europe?
-            </span>
-            <svg class="chevron transition-transform duration-200 text-gray-400" width="24" height="24"
-              viewBox="0 0 24 24">
-              <path stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                d="M9 6l6 6-6 6" />
-            </svg>
-          </button>
-          <div class="faq-content overflow-hidden transition-all duration-200 px-5 max-h-0 py-0"
-            style="background:white;">
-            <div class="text-gray-600 text-[15px]">
-              The best time to visit Europe depends on your preferences. Generally, late spring (May–June) and early
-              autumn (September–October) offer pleasant weather, fewer crowds, and beautiful scenery across most
-              destinations.
-            </div>
-          </div>
-        </div>
-        <!-- FAQ 2 -->
-        <div class="bg-white border border-gray-300 rounded-md">
-          <button
-            class="w-full flex items-center justify-between px-5 py-4 cursor-pointer focus:outline-none transition hover:shadow-md"
-            aria-expanded="false" data-faq="1">
-            <span class="text-gray-700 text-base text-left">
-              <span class="font-medium mr-2">Q:</span>
-              What should I carry on my Europe Tour?
-            </span>
-            <svg class="chevron transition-transform duration-200 text-gray-400" width="24" height="24"
-              viewBox="0 0 24 24">
-              <path stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                d="M9 6l6 6-6 6" />
-            </svg>
-          </button>
-          <div class="faq-content overflow-hidden transition-all duration-200 px-5 max-h-0 py-0"
-            style="background:white;">
-            <div class="text-gray-600 text-[15px]">
-              It's recommended to carry layered clothing, comfortable shoes, travel adapters, your passport and travel
-              documents, a universal charger, local currency, and any specific medications or essentials you may need.
-            </div>
-          </div>
-        </div>
-        <!-- FAQ 3 -->
-        <div class="bg-white border border-gray-300 rounded-md">
-          <button
-            class="w-full flex items-center justify-between px-5 py-4 cursor-pointer focus:outline-none transition hover:shadow-md"
-            aria-expanded="false" data-faq="2">
-            <span class="text-gray-700 text-base text-left">
-              <span class="font-medium mr-2">Q:</span>
-              What is the average price for a 7-day trip to Europe?
-            </span>
-            <svg class="chevron transition-transform duration-200 text-gray-400" width="24" height="24"
-              viewBox="0 0 24 24">
-              <path stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                d="M9 6l6 6-6 6" />
-            </svg>
-          </button>
-          <div class="faq-content overflow-hidden transition-all duration-200 px-5 max-h-0 py-0"
-            style="background:white;">
-            <div class="text-gray-600 text-[15px]">
-              A 7-day Europe trip typically ranges from $1,200 to $3,000 per person, depending on destinations,
-              accommodation type, travel style, and inclusions such as guided tours and meals.
-            </div>
-          </div>
-        </div>
-        <!-- FAQ 4 -->
-        <div class="bg-white border border-gray-300 rounded-md">
-          <button
-            class="w-full flex items-center justify-between px-5 py-4 cursor-pointer focus:outline-none transition hover:shadow-md"
-            aria-expanded="false" data-faq="3">
-            <span class="text-gray-700 text-base text-left">
-              <span class="font-medium mr-2">Q:</span>
-              What is the best Europe itinerary for a first-time visitor?
-            </span>
-            <svg class="chevron transition-transform duration-200 text-gray-400" width="24" height="24"
-              viewBox="0 0 24 24">
-              <path stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                d="M9 6l6 6-6 6" />
-            </svg>
-          </button>
-          <div class="faq-content overflow-hidden transition-all duration-200 px-5 max-h-0 py-0"
-            style="background:white;">
-            <div class="text-gray-600 text-[15px]">
-              A classic itinerary for first-timers includes Paris, Amsterdam, and Rome or London, Paris, and Venice.
-              This gives you a mix of iconic cities, culture, and landmarks within one week.
-            </div>
-          </div>
-        </div>
-        <!-- FAQ 5 -->
-        <div class="bg-white border border-gray-300 rounded-md">
-          <button
-            class="w-full flex items-center justify-between px-5 py-4 cursor-pointer focus:outline-none transition hover:shadow-md"
-            aria-expanded="false" data-faq="4">
-            <span class="text-gray-700 text-base text-left">
-              <span class="font-medium mr-2">Q:</span>
-              Can I customize my Europe Travel Itinerary?
-            </span>
-            <svg class="chevron transition-transform duration-200 text-gray-400" width="24" height="24"
-              viewBox="0 0 24 24">
-              <path stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
-                d="M9 6l6 6-6 6" />
-            </svg>
-          </button>
-          <div class="faq-content overflow-hidden transition-all duration-200 px-5 max-h-0 py-0"
-            style="background:white;">
-            <div class="text-gray-600 text-[15px]">
-              Absolutely! We offer fully customizable itineraries so you can select destinations, activities, hotels,
-              and experiences tailored to your interests and budget.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="px-4 pt-10 pb-12 flex justify-center">
-    <div class="w-[1400px]">
-      <!-- Heading -->
-      <div class="flex items-center mb-4">
-        <span class="h-7 w-1.5 bg-yellow-400 mr-3 rounded-sm"></span>
-        <h2 class="text-[#34586a] text-2xl sm:text-2xl font-bold">
-          Europe Travel Guidelines
-        </h2>
-      </div>
-      <!-- List -->
-      <div class="bg-white shadow-[0_2px_18px_rgba(32,60,132,0.07)] rounded-lg px-6 py-6">
-        <ol class="list-decimal pl-5 text-[17px] text-[#385162] leading-relaxed">
-          <li>
-            While applying for a Schengen Visa, your passport should be
-            valid 6 months post the date of travel.
-          </li>
-          <li>
-            Your passport should have at least 2 blank pages with all the
-            previous Visa applications through the same passport.
-          </li>
-          <li>
-            It is advised to activate an International roaming plan as per
-            the countries you are visiting, before departing from India.
-          </li>
-          <li>
-            Currency exchange rates at airports are comparatively higher.
-            Rather exchange your currency from your city in India for
-            better deals. You can also use an International travel card
-            which is widely accepted in Europe.
-          </li>
-          <li>
-            Purchase tickets for major monuments in advance to save time.
-          </li>
-        </ol>
-      </div>
-    </div>
-  </section>
-  <section class="w-full flex justify-center items-center py-8">
-    <div class="w-[1400px] bg-white rounded-xl shadow-[0_2px_18px_rgba(32,60,132,0.07)] px-6 py-7">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6">
-        Europe Tour Packages
-      </h2>
-      <div class="flex flex-wrap gap-x-4 gap-y-4">
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Europe Tour Packages from Chennai
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Europe Tour Packages from Ahmedabad
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Europe Tour Packages from Bangalore
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Europe Tour Packages from Mumbai
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Europe Honeymoon Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Europe Tour Packages From Delhi
-        </button>
-      </div>
-    </div>
-  </section>
-  <section class="py-10 w-full bg-white">
-    <div class="flex flex-col items-center mb-8">
-      <h2 class="text-3xl font-bold text-[#34586a] mb-2">
-        Our Blogs
-      </h2>
-      <span class="text-lg text-[#6ea7c5] font-semibold mb-1">
-        Some good reads to help you travel better!
-      </span>
-      <span class="block w-40 h-1 rounded bg-yellow-300 mb-2"></span>
-    </div>
-
-    <!-- Responsive Flex: column on mobile, row on md+ -->
-    <div class="flex flex-col md:flex-row gap-6 md:w-[1400px] w-full mx-auto px-2 md:px-4">
-      <!-- Left: List of Blogs -->
-      <div class="flex flex-col gap-4 flex-1 min-w-0 md:min-w-[340px]">
-        <!-- Blog 1 -->
         <div
-          class="flex flex-col md:flex-row bg-white border p-5 md:p-7 border-sky-200 rounded-md overflow-hidden transition hover:shadow-md">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-            alt="Piazza Navona Rome: Your Ultimate Guide 2025"
-            class="w-full h-[170px] md:w-[220px] md:h-[110px] object-cover rounded-md" />
-          <div class="pl-0 pt-3 md:pl-4 md:py-4 flex flex-col justify-center w-full">
-            <h3 class="font-bold text-lg md:text-[1.7rem] leading-tight text-[#29323d] mb-2">
-              Piazza Navona Rome: Your Ultimate Guide 2025
-            </h3>
-            <div class="text-gray-500 text-sm md:text-base">
-              May 20, 2025 | 5 Min Read
-            </div>
-          </div>
-        </div>
-        <!-- Blog 2 -->
-        <div
-          class="flex flex-col md:flex-row bg-white border p-5 md:p-7 border-sky-200 rounded-md overflow-hidden transition hover:shadow-md">
-          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=80"
-            alt="Travel Around Europe On A Budget"
-            class="w-full h-[170px] md:w-[220px] md:h-[110px] object-cover rounded-md" />
-          <div class="pl-0 pt-3 md:pl-4 md:py-4 flex flex-col justify-center w-full">
-            <h3 class="font-bold text-lg md:text-[1.7rem] leading-tight text-[#29323d] mb-2">
-              Travel Around Europe On A Budget
-            </h3>
-            <div class="text-gray-500 text-sm md:text-base">
-              May 19, 2025 | 5 Min Read
-            </div>
-          </div>
-        </div>
-        <!-- Blog 3 -->
-        <div
-          class="flex flex-col md:flex-row bg-white border p-5 md:p-7 border-sky-200 rounded-md overflow-hidden transition hover:shadow-md">
-          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=400&q=80"
-            alt="Santa Maria Maggiore Complete Guide 2025"
-            class="w-full h-[170px] md:w-[220px] md:h-[110px] object-cover rounded-md" />
-          <div class="pl-0 pt-3 md:pl-4 md:py-4 flex flex-col justify-center w-full">
-            <h3 class="font-bold text-lg md:text-[1.7rem] leading-tight text-[#29323d] mb-2">
-              Santa Maria Maggiore Complete Guide 2025
-            </h3>
-            <div class="text-gray-500 text-sm md:text-base">
-              May 16, 2025 | 5 Min Read
-            </div>
-          </div>
+          class="border-t border-[#27393e] mt-10 pt-6 text-center text-gray-400 text-sm"
+        >
+          &copy; 2024 Wanderlust Travel. All rights reserved.
         </div>
       </div>
-      <!-- Right: Featured Blog -->
-      <div class="flex-1 min-w-0 md:min-w-[380px]">
-        <div
-          class="h-full bg-white border border-sky-200 rounded-md overflow-hidden flex flex-col transition hover:shadow-md">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80"
-            alt="A Complete Guide To Venice Carnival" class="w-full h-[200px] md:h-[330px] object-cover" />
-          <div class="flex flex-col flex-1 px-4 md:px-5 py-4 md:py-5 relative">
-            <h3 class="font-bold text-xl md:text-3xl text-[#29323d] leading-snug mb-3">
-              A Complete Guide To Venice Carnival
-            </h3>
-            <div class="text-gray-500 text-sm md:text-base mb-5">
-              May 10, 2025 | 6 Min Read
-            </div>
-            <!-- Show 'Read Full' on desktop -->
-            <div class="absolute bottom-4 right-6 flex items-center hidden md:flex">
-              <a href="#" class="text-sky-700 font-semibold text-lg flex items-center gap-1 hover:underline">
-                Read Full
-                <svg class="ml-0.5 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-            <!-- Show 'Read Full' below on mobile -->
-            <div class="mt-3 flex md:hidden">
-              <a href="#" class="text-sky-700 font-semibold text-base flex items-center gap-1 hover:underline">
-                Read Full
-                <svg class="ml-0.5 w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="py-12 md:py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4">
-      <!-- Heading -->
-      <div class="text-center mb-10">
-        <div class="text-[#12a5c4] font-semibold text-lg mb-1">
-          Why WanderOn?
-        </div>
-        <h2 class="text-3xl md:text-5xl font-bold text-[#066980]">
-          WanderOn’s Secret Sauce
-        </h2>
-        <div class="flex justify-center mt-4">
-          <span class="block w-32 h-1 bg-yellow-400 rounded"></span>
-        </div>
-      </div>
-      <!-- Cards Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-        <!-- Card 1 -->
-        <div
-          class="relative rounded-2xl border border-blue-200 bg-white p-6 pt-8 pb-24 min-h-[340px] shadow-sm hover:shadow-lg transition-shadow flex flex-col"
-          style="background-image: url('https://wanderon.in/assets/images/sauceBg1.svg'); background-repeat: no-repeat; background-position: left bottom; background-size: contain;">
-          <h3 class="text-[#12a5c4] text-xl font-bold mb-2">
-            No Third Party Mess
-          </h3>
-          <p class="text-gray-600 text-base mb-4">
-            100 percent in-house operations for all trips! No third parties involved, hence no fishy claims!
-          </p>
-        </div>
-        <!-- Card 2 -->
-        <div
-          class="relative rounded-2xl border border-blue-200 bg-white p-6 pt-8 pb-24 min-h-[340px] shadow-sm hover:shadow-lg transition-shadow flex flex-col"
-          style="background-image: url('https://wanderon.in/assets/images/sauceBg2.svg'); background-repeat: no-repeat; background-position: left bottom; background-size: contain;">
-          <h3 class="text-[#12a5c4] text-xl font-bold mb-2">
-            Transparency & Security
-          </h3>
-          <p class="text-gray-600 text-base mb-4">
-            Real time monitoring of all trips by ground team! All routes and weather conditions are accurately updated!
-          </p>
-        </div>
-        <!-- Card 3 -->
-        <div
-          class="relative rounded-2xl border border-blue-200 bg-white p-6 pt-8 pb-24 min-h-[340px] shadow-sm hover:shadow-lg transition-shadow flex flex-col"
-          style="background-image: url('https://wanderon.in/assets/images/sauceBg3.svg'); background-repeat: no-repeat; background-position: left bottom; background-size: contain;">
-          <h3 class="text-[#12a5c4] text-xl font-bold mb-2">
-            Co-Travelers Filtering
-          </h3>
-          <p class="text-gray-600 text-base mb-4">
-            Multi-step filtering to bring only like-minded people together! That’s our key to have fuss-free trips!
-          </p>
-        </div>
-        <!-- Card 4 -->
-        <div
-          class="relative rounded-2xl border border-blue-200 bg-white p-6 pt-8 pb-24 min-h-[340px] shadow-sm hover:shadow-lg transition-shadow flex flex-col"
-          style="background-image: url('https://wanderon.in/assets/images/sauceBg4.svg'); background-repeat: no-repeat; background-position: left bottom; background-size: contain;">
-          <h3 class="text-[#12a5c4] text-xl font-bold mb-2">
-            One Stop Hassle Free Experience
-          </h3>
-          <p class="text-gray-600 text-base mb-4">
-            Comfortable stays, trained drivers, hospitable staff and friendly trip leaders put together that one
-            memorable trip for you!
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="w-full py-14 bg-white">
-    <div class="max-w-[1200px] mx-auto">
-      <!-- Section Heading -->
-      <div class="relative mb-6 flex items-center justify-center">
-        <div class="flex-1 border-t border-gray-300"></div>
-        <span class="text-[22px] tracking-[0.18em] text-gray-500 font-[500] px-6" style="letter-spacing:0.17em;">
-          UNFILTERED REVIEWS
-        </span>
-        <div class="flex-1 border-t border-gray-300"></div>
-      </div>
+    </footer>
 
-      <div class="relative flex items-center">
-        <!-- Left Arrow -->
-        <button
-          class="swiper-review-prev hidden md:flex absolute left-[-35px] z-10 bg-white border-2 border-gray-700 w-12 h-12 rounded-full items-center justify-center transition hover:bg-gray-100"
-          style="top:42%;" aria-label="Previous" type="button">
-          <!-- ChevronLeft SVG -->
-          <svg class="w-7 h-7 text-gray-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-        </button>
-
-        <div class="w-full">
-          <div class="swiper reviews-swiper px-1">
-            <div class="swiper-wrapper">
-              <!-- Review 1 -->
-              <div class="swiper-slide">
-                <div class="flex flex-col items-center h-full px-2 py-7">
-                  <div class="relative mb-3 h-[120px] w-[185px] flex items-end">
-                    <img
-                      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-0 top-0 w-[95px] h-[120px] object-cover rounded shadow border-2 border-white z-10"
-                      alt="">
-                    <span class="absolute left-[62px] top-[-15px] w-20 h-4 bg-yellow-100 rotate-[-23deg] z-30"
-                      style="opacity:0.89;"></span>
-                    <img
-                      src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-[62px] top-[24px] w-[120px] h-[85px] object-cover rounded shadow border-2 border-white z-20"
-                      alt="">
-                  </div>
-                  <div
-                    class="text-gray-800 text-[16px] leading-snug text-left w-full mb-7 font-[400] min-h-[70px] max-w-[420px]"
-                    style="
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    min-height: 70px;
-                    max-height: 72px;">
-                    I'm grateful to the whole wander on team for a great customised experience in Europe this summer.
-                    Especially thank you to Anand and Akash for their constant support and cooperation. Looking forward
-                    to organising more trips with you all!
-                  </div>
-                  <div class="flex justify-between w-full items-end">
-                    <span class="font-bold text-[18px] text-black pl-1">continue reading …</span>
-                    <span class="font-medium text-sky-800 pr-1">Niketa Sharma</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Review 2 -->
-              <div class="swiper-slide">
-                <div class="flex flex-col items-center h-full px-2 py-7">
-                  <div class="relative mb-3 h-[120px] w-[185px] flex items-end">
-                    <img
-                      src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-0 top-0 w-[95px] h-[120px] object-cover rounded shadow border-2 border-white z-10"
-                      alt="">
-                    <span class="absolute left-[62px] top-[-15px] w-20 h-4 bg-yellow-100 rotate-[-23deg] z-30"
-                      style="opacity:0.89;"></span>
-                    <img
-                      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-[62px] top-[24px] w-[120px] h-[85px] object-cover rounded shadow border-2 border-white z-20"
-                      alt="">
-                  </div>
-                  <div
-                    class="text-gray-800 text-[16px] leading-snug text-left w-full mb-7 font-[400] min-h-[70px] max-w-[420px]"
-                    style="
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    min-height: 70px;
-                    max-height: 72px;">
-                    I planned a trip to UK and Europe through wanderon and really had an amazing time of my life. My
-                    first solo trip and I was like hope everything is planned well and I was very happy the way the team
-                    took care of everything and Akash was available on Whatsapp incase I needed help and supported me
-                    all the time if I wanted anything.
-                  </div>
-                  <div class="flex justify-between w-full items-end">
-                    <span class="font-bold text-[18px] text-black pl-1">continue reading …</span>
-                    <span class="font-medium text-sky-800 pr-1">Priya Neetu</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Review 3 -->
-              <div class="swiper-slide">
-                <div class="flex flex-col items-center h-full px-2 py-7">
-                  <div class="relative mb-3 h-[120px] w-[185px] flex items-end">
-                    <img
-                      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-0 top-0 w-[95px] h-[120px] object-cover rounded shadow border-2 border-white z-10"
-                      alt="">
-                    <span class="absolute left-[62px] top-[-15px] w-20 h-4 bg-yellow-100 rotate-[-23deg] z-30"
-                      style="opacity:0.89;"></span>
-                    <img
-                      src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-[62px] top-[24px] w-[120px] h-[85px] object-cover rounded shadow border-2 border-white z-20"
-                      alt="">
-                  </div>
-                  <div
-                    class="text-gray-800 text-[16px] leading-snug text-left w-full mb-7 font-[400] min-h-[70px] max-w-[420px]"
-                    style="
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    min-height: 70px;
-                    max-height: 72px;">
-                    This was our family’s best trip ever! Team Wanderon handled everything perfectly. Will recommend to
-                    friends and family.
-                  </div>
-                  <div class="flex justify-between w-full items-end">
-                    <span class="font-bold text-[18px] text-black pl-1">continue reading …</span>
-                    <span class="font-medium text-sky-800 pr-1">Rahul Bajaj</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Review 4 -->
-              <div class="swiper-slide">
-                <div class="flex flex-col items-center h-full px-2 py-7">
-                  <div class="relative mb-3 h-[120px] w-[185px] flex items-end">
-                    <img
-                      src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-0 top-0 w-[95px] h-[120px] object-cover rounded shadow border-2 border-white z-10"
-                      alt="">
-                    <span class="absolute left-[62px] top-[-15px] w-20 h-4 bg-yellow-100 rotate-[-23deg] z-30"
-                      style="opacity:0.89;"></span>
-                    <img
-                      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-[62px] top-[24px] w-[120px] h-[85px] object-cover rounded shadow border-2 border-white z-20"
-                      alt="">
-                  </div>
-                  <div
-                    class="text-gray-800 text-[16px] leading-snug text-left w-full mb-7 font-[400] min-h-[70px] max-w-[420px]"
-                    style="
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    min-height: 70px;
-                    max-height: 72px;">
-                    Great team, wonderful service! Europe trip was memorable. Thanks to all guides and coordinators.
-                  </div>
-                  <div class="flex justify-between w-full items-end">
-                    <span class="font-bold text-[18px] text-black pl-1">continue reading …</span>
-                    <span class="font-medium text-sky-800 pr-1">Sunita Rao</span>
-                  </div>
-                </div>
-              </div>
-              <!-- Review 5 -->
-              <div class="swiper-slide">
-                <div class="flex flex-col items-center h-full px-2 py-7">
-                  <div class="relative mb-3 h-[120px] w-[185px] flex items-end">
-                    <img
-                      src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-0 top-0 w-[95px] h-[120px] object-cover rounded shadow border-2 border-white z-10"
-                      alt="">
-                    <span class="absolute left-[62px] top-[-15px] w-20 h-4 bg-yellow-100 rotate-[-23deg] z-30"
-                      style="opacity:0.89;"></span>
-                    <img
-                      src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=300&q=80"
-                      class="absolute left-[62px] top-[24px] w-[120px] h-[85px] object-cover rounded shadow border-2 border-white z-20"
-                      alt="">
-                  </div>
-                  <div
-                    class="text-gray-800 text-[16px] leading-snug text-left w-full mb-7 font-[400] min-h-[70px] max-w-[420px]"
-                    style="
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    min-height: 70px;
-                    max-height: 72px;">
-                    Awesome experience. Highly professional and friendly staff. I’ll definitely travel again!
-                  </div>
-                  <div class="flex justify-between w-full items-end">
-                    <span class="font-bold text-[18px] text-black pl-1">continue reading …</span>
-                    <span class="font-medium text-sky-800 pr-1">Arjun Patel</span>
-                  </div>
-                </div>
-              </div>
-              <!-- /swiper-wrapper -->
-            </div>
-            <div class="swiper-pagination mt-5"></div>
-          </div>
-        </div>
-        <!-- Right Arrow -->
-        <button
-          class="swiper-review-next hidden md:flex absolute right-[-35px] z-10 bg-white border-2 border-gray-700 w-12 h-12 rounded-full items-center justify-center transition hover:bg-gray-100"
-          style="top:42%;" aria-label="Next" type="button">
-          <!-- ChevronRight SVG -->
-          <svg class="w-7 h-7 text-gray-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </section>
-  <!-- International Tour Packages Section -->
-  <section class="w-full flex justify-center items-center py-8">
-    <div class="w-[1400px] bg-white rounded-xl shadow-[0_2px_18px_rgba(32,60,132,0.07)] px-6 py-7">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6">
-        International Tour Packages
-      </h2>
-      <div class="flex flex-wrap gap-x-4 gap-y-4">
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          International Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Bali Tour package
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Bhutan Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Vietnam Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Thailand Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Dubai Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Sri Lanka Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Maldives Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Singapore Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Malaysia Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Mauritius Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          India Tour Packages
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- India Tour Packages Section -->
-  <section class="w-full flex justify-center items-center py-8">
-    <div class="w-[1400px] bg-white rounded-xl shadow-[0_2px_18px_rgba(32,60,132,0.07)] px-6 py-7">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6">
-        India Tour Packages
-      </h2>
-      <div class="flex flex-wrap gap-x-4 gap-y-4">
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Kashmir Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Andaman Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Meghalaya Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Spiti Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Kerala Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Sikkim Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Himachal Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Uttarakhand Tour Packages
-        </button>
-      </div>
-    </div>
-  </section>
-  <section class="w-full flex justify-center items-center py-8">
-    <div class="w-[1400px] bg-white rounded-xl shadow-[0_2px_18px_rgba(32,60,132,0.07)] px-6 py-7">
-      <h2 class="text-2xl font-bold text-gray-800 mb-6">
-        Other Packages
-      </h2>
-      <div class="flex flex-wrap gap-x-4 gap-y-4">
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Honeymoon Tour Packages
-        </button>
-        <button
-          class="border border-sky-500 text-sky-700 bg-white px-5 py-2 rounded-md font-medium text-base hover:bg-sky-50 transition min-w-[270px] text-left"
-          style="box-shadow: none;">
-          Corporate Tour Packages
-        </button>
-      </div>
-    </div>
-  </section>
-  <footer class="bg-[#112123] pt-2 pb-0 mt-10 w-full border-t-4 border-[#20e0ff]">
-    <div class="max-w-7xl mx-auto px-4 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-white">
-        <!-- Column 1: Logo + tagline -->
-        <div>
-          <h3 class="text-xl font-bold mb-4">Wanderlust</h3>
-          <p class="text-gray-300 text-[15px]">
-            Creating unforgettable travel experiences since 2015.<br>
-            Your adventure starts here.
-          </p>
-        </div>
-        <!-- Column 2: Quick Links -->
-        <div>
-          <h4 class="font-semibold mb-4 text-lg">Quick Links</h4>
-          <ul class="space-y-2 text-gray-300 text-[15px]">
-            <li><a href="/" class="hover:text-[#20e0ff] transition">Home</a></li>
-            <li><a href="/packages" class="hover:text-[#20e0ff] transition">Packages</a></li>
-            <li><a href="/about" class="hover:text-[#20e0ff] transition">About Us</a></li>
-            <li>
-              <a href="#contact" class="hover:text-[#20e0ff] transition">Contact</a>
-              <!-- If you have a modal, trigger with JS -->
-            </li>
-            <li><a href="/privacy-policy" class="hover:text-[#20e0ff] transition">Privacy Policy</a></li>
-            <li><a href="/desclaimer" class="hover:text-[#20e0ff] transition">Desclaimer</a></li>
-            <li><a href="/terms-and-conditions" class="hover:text-[#20e0ff] transition">Teams & Condition</a></li>
-          </ul>
-        </div>
-        <!-- Column 3: Destinations -->
-        <div>
-          <h4 class="font-semibold mb-4 text-lg">Destinations</h4>
-          <ul class="space-y-2 text-gray-300 text-[15px]">
-            <li>Bali, Indonesia</li>
-            <li>Swiss Alps</li>
-            <li>African Safari</li>
-            <li>Patagonia</li>
-          </ul>
-        </div>
-        <!-- Column 4: Contact Info -->
-        <div>
-          <h4 class="font-semibold mb-4 text-lg">Contact Info</h4>
-          <div class="space-y-2 text-gray-300 text-[15px]">
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-phone w-4 h-4"></i>
-              <span>+1 (555) 123-4567</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-envelope w-4 h-4"></i>
-              <span>info@wanderlust.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="border-t border-[#27393e] mt-10 pt-6 text-center text-gray-400 text-sm">
-        &copy; 2024 Wanderlust Travel. All rights reserved.
-      </div>
-    </div>
-  </footer>
-  <!-- SwiperJS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    // HERO SWIPER
-    var swiper = new Swiper('.hero-swiper', {
-      loop: true,
-      speed: 650,
-      navigation: {
-        nextEl: ".hero-swiper-next",
-        prevEl: ".hero-swiper-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true
-      },
-      autoplay: {
-        delay: 6000,
-        disableOnInteraction: false
-      }
-    });
-
-    // MODAL
-    function openContactModal() {
-      document.getElementById("contact-modal").classList.remove("hidden");
+    function openModal() {
+      document.getElementById('contactModal').classList.remove('hidden');
+      document.getElementById('contactFormMsg').classList.add('hidden');
     }
-    function closeContactModal() {
-      document.getElementById("contact-modal").classList.add("hidden");
+    function closeModal() {
+      document.getElementById('contactModal').classList.add('hidden');
     }
-
-    // COMMUNITY TRIPS SWIPER
-    new Swiper('.trips-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 32,
-      navigation: {
-        nextEl: '.trips-swiper-next',
-        prevEl: '.trips-swiper-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        700: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-        1300: { slidesPerView: 4 },
-      },
+    // Optional: close modal when clicking outside
+    document.getElementById('contactModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
     });
-
-    // ABOUT Read More/Less
-    const readMoreBtn = document.getElementById('readMoreBtn');
-    const readLessBtn = document.getElementById('readLessBtn');
-    const aboutCollapsed = document.getElementById('aboutCollapsed');
-    const aboutExpanded = document.getElementById('aboutExpanded');
-    readMoreBtn.addEventListener('click', () => {
-      aboutCollapsed.classList.add('hidden');
-      aboutExpanded.classList.remove('hidden');
-      readLessBtn.classList.remove('hidden');
+      document
+    .getElementById('searchInput')
+    .addEventListener('click', () => {
+      window.location.href = 'search.html';
     });
-    readLessBtn.addEventListener('click', () => {
-      aboutCollapsed.classList.remove('hidden');
-      aboutExpanded.classList.add('hidden');
-      readLessBtn.classList.add('hidden');
+  document
+    .getElementById('searchInput')
+    .addEventListener('focus', () => {
+      window.location.href = 'search.html';
     });
-
-    // ACTIVITIES SWIPER
-    new Swiper('.activities-swiper', {
-      slidesPerView: 3,
-      spaceBetween: 28,
-      navigation: {
-        nextEl: '.swiper-button-next-activity',
-        prevEl: '.swiper-button-prev-activity',
-      },
-      breakpoints: {
-        0: { slidesPerView: 1, spaceBetween: 18 },
-        600: { slidesPerView: 1.25, spaceBetween: 18 },
-        900: { slidesPerView: 2, spaceBetween: 22 },
-        1200: { slidesPerView: 3, spaceBetween: 28 },
-      },
-    });
-    document.querySelectorAll('#faq-accordion button').forEach(function (btn, idx, arr) {
-      btn.addEventListener('click', function () {
-        const faqIdx = btn.getAttribute('data-faq');
-        const content = btn.parentElement.querySelector('.faq-content');
-        const open = btn.getAttribute('aria-expanded') === 'true';
-
-        // Close all
-        arr.forEach(function (b) {
-          b.setAttribute('aria-expanded', 'false');
-          b.parentElement.querySelector('.faq-content').style.maxHeight = '0px';
-          b.parentElement.querySelector('.faq-content').style.paddingTop = '0px';
-          b.parentElement.querySelector('.faq-content').style.paddingBottom = '0px';
-          b.parentElement.querySelector('.chevron').style.transform = '';
-        });
-
-        // If not open, open this one
-        if (!open) {
-          btn.setAttribute('aria-expanded', 'true');
-          content.style.maxHeight = content.scrollHeight + 24 + 'px'; // extra for padding
-          content.style.paddingTop = '12px';
-          content.style.paddingBottom = '12px';
-          btn.querySelector('.chevron').style.transform = 'rotate(90deg)';
-        }
-      });
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-      new Swiper('.reviews-swiper', {
-        slidesPerView: 1,
-        spaceBetween: 24,
-        breakpoints: {
-          900: { slidesPerView: 2, spaceBetween: 48 },
-        },
-        navigation: {
-          nextEl: '.swiper-review-next',
-          prevEl: '.swiper-review-prev',
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        }
-      });
-    });
-    new Swiper('.affordable-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 18,
-      navigation: {
-        nextEl: '.affordable-swiper-next',
-        prevEl: '.affordable-swiper-prev',
-      },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      breakpoints: {
-        640: { slidesPerView: 2, spaceBetween: 24 },
-        1024: { slidesPerView: 4, spaceBetween: 28 }, // 4 columns desktop!
-      }
-    });
-
-    new Swiper('.europeuk-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 18,
-      navigation: {
-        nextEl: '.europeuk-swiper-next',
-        prevEl: '.europeuk-swiper-prev',
-      },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      breakpoints: {
-        640: { slidesPerView: 2, spaceBetween: 24 },
-        1024: { slidesPerView: 4, spaceBetween: 28 }, // 4 columns desktop!
-      }
-    });
-
   </script>
 </body>
-
 </html>
